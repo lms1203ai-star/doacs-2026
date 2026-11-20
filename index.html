@@ -3,11 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 DOACs 臨床應用與審方互動平台 | 抗凝血門診藥事照護（SOP v1.5 最終版）</title>
+  <title>2026 DOACs 臨床應用與審方互動平台 | 抗凝血門診藥事照護（SOP v1.6）</title>
   <style>
-    /* =========================================================================
-       1. 樣式區（臨床醫療藍綠專業風 + RWD + 紅/黃/綠風險色標 + 計算機 + 案例 + QR投票）
-       ========================================================================= */
     :root {
       --primary: #0f766e;
       --primary-dark: #115e59;
@@ -36,9 +33,7 @@
       --radius: 10px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -65,17 +60,8 @@
       gap: 16px;
     }
 
-    .header-title h1 {
-      margin: 0 0 6px;
-      font-size: 1.45rem;
-      letter-spacing: 0.3px;
-    }
-
-    .header-title p {
-      margin: 0;
-      font-size: 0.92rem;
-      opacity: 0.92;
-    }
+    .header-title h1 { margin: 0 0 6px; font-size: 1.45rem; letter-spacing: 0.3px; }
+    .header-title p { margin: 0; font-size: 0.92rem; opacity: 0.92; }
 
     .header-badge {
       background: rgba(255, 255, 255, 0.16);
@@ -117,31 +103,13 @@
       white-space: nowrap;
     }
 
-    .module-tab-btn:hover {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-    }
+    .module-tab-btn:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .module-tab-btn.active { background: var(--primary); color: #ffffff; }
 
-    .module-tab-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-    }
+    main.container { max-width: 1240px; margin: 24px auto; padding: 0 24px 56px; }
+    .module-view { display: none; }
+    .module-view.active { display: block; }
 
-    main.container {
-      max-width: 1240px;
-      margin: 24px auto;
-      padding: 0 24px 56px;
-    }
-
-    .module-view {
-      display: none;
-    }
-
-    .module-view.active {
-      display: block;
-    }
-
-    /* 簡報圖片資料夾載入橫幅 */
     .slide-loader-bar {
       background: #ffffff;
       border: 1px solid #99f6e4;
@@ -157,14 +125,8 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .slide-loader-info {
-      font-size: 0.88rem;
-      color: var(--text-main);
-    }
-
-    .slide-loader-info strong {
-      color: var(--primary-dark);
-    }
+    .slide-loader-info { font-size: 0.88rem; color: var(--text-main); }
+    .slide-loader-info strong { color: var(--primary-dark); }
 
     .slide-status-pill {
       display: inline-block;
@@ -190,11 +152,7 @@
       align-items: start;
     }
 
-    @media (max-width: 900px) {
-      .lecture-layout {
-        grid-template-columns: 1fr;
-      }
-    }
+    @media (max-width: 900px) { .lecture-layout { grid-template-columns: 1fr; } }
 
     aside.chapter-sidebar {
       background: var(--bg-card);
@@ -206,11 +164,7 @@
       top: 72px;
     }
 
-    @media (max-width: 900px) {
-      aside.chapter-sidebar {
-        position: static;
-      }
-    }
+    @media (max-width: 900px) { aside.chapter-sidebar { position: static; } }
 
     .sidebar-heading {
       font-size: 0.85rem;
@@ -238,46 +192,13 @@
       gap: 2px;
     }
 
-    .chapter-btn:hover {
-      background: var(--primary-light);
-      border-color: #99f6e4;
-    }
+    .chapter-btn:hover { background: var(--primary-light); border-color: #99f6e4; }
+    .chapter-btn.active { background: var(--primary-light); border-color: var(--primary); color: var(--primary-dark); font-weight: 700; }
+    .chapter-pages { font-size: 0.78rem; color: var(--text-muted); font-weight: 400; }
 
-    .chapter-btn.active {
-      background: var(--primary-light);
-      border-color: var(--primary);
-      color: var(--primary-dark);
-      font-weight: 700;
-    }
-
-    .chapter-pages {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 400;
-    }
-
-    .legend-box {
-      margin-top: 16px;
-      padding-top: 14px;
-      border-top: 1px dashed var(--border);
-      font-size: 0.82rem;
-    }
-
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 6px;
-    }
-
-    .dot {
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      display: inline-block;
-      flex-shrink: 0;
-    }
-
+    .legend-box { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border); font-size: 0.82rem; }
+    .legend-item { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
     .dot-green { background: #16a34a; }
     .dot-yellow { background: #eab308; }
     .dot-red { background: #dc2626; }
@@ -292,17 +213,8 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .chapter-header-card h2 {
-      margin: 0 0 6px;
-      font-size: 1.35rem;
-      color: var(--primary-dark);
-    }
-
-    .chapter-header-card p {
-      margin: 0;
-      color: var(--text-muted);
-      font-size: 0.94rem;
-    }
+    .chapter-header-card h2 { margin: 0 0 6px; font-size: 1.35rem; color: var(--primary-dark); }
+    .chapter-header-card p { margin: 0; color: var(--text-muted); font-size: 0.94rem; }
 
     .knowledge-card {
       background: var(--bg-card);
@@ -313,57 +225,14 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .card-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
+    .card-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .card-title { margin: 0; font-size: 1.12rem; color: var(--text-main); }
+    .source-tag { font-size: 0.78rem; background: #e2e8f0; color: #334155; padding: 3px 9px; border-radius: 6px; font-weight: 600; }
 
-    .card-title {
-      margin: 0;
-      font-size: 1.12rem;
-      color: var(--text-main);
-    }
-
-    .source-tag {
-      font-size: 0.78rem;
-      background: #e2e8f0;
-      color: #334155;
-      padding: 3px 9px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .risk-badge {
-      display: inline-block;
-      padding: 2px 9px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      margin-right: 6px;
-      vertical-align: middle;
-    }
-
-    .risk-green {
-      background: var(--risk-green-bg);
-      color: var(--risk-green-text);
-      border: 1px solid var(--risk-green-border);
-    }
-
-    .risk-yellow {
-      background: var(--risk-yellow-bg);
-      color: var(--risk-yellow-text);
-      border: 1px solid var(--risk-yellow-border);
-    }
-
-    .risk-red {
-      background: var(--risk-red-bg);
-      color: var(--risk-red-text);
-      border: 1px solid var(--risk-red-border);
-    }
+    .risk-badge { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-right: 6px; vertical-align: middle; }
+    .risk-green { background: var(--risk-green-bg); color: var(--risk-green-text); border: 1px solid var(--risk-green-border); }
+    .risk-yellow { background: var(--risk-yellow-bg); color: var(--risk-yellow-text); border: 1px solid var(--risk-yellow-border); }
+    .risk-red { background: var(--risk-red-bg); color: var(--risk-red-text); border: 1px solid var(--risk-red-border); }
 
     .pending-badge {
       display: inline-block;
@@ -376,15 +245,7 @@
       font-weight: 700;
     }
 
-    .subtabs-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
-    }
-
+    .subtabs-bar { display: flex; flex-wrap: wrap; gap: 6px; border-bottom: 1px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 14px; }
     .subtab-btn {
       padding: 6px 12px;
       border-radius: 6px;
@@ -394,867 +255,154 @@
       font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s ease;
     }
-
-    .subtab-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    .subtab-panel ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .subtab-panel li {
-      margin-bottom: 8px;
-    }
-
-    .slide-embed-box {
-      margin-top: 14px;
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
-
-    .slide-embed-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-    }
-
-    .btn-play-slides {
-      background: var(--accent);
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      padding: 5px 11px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-play-slides:hover {
-      background: #0369a1;
-    }
-
-    .slide-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
-      gap: 10px;
-    }
-
-    .slide-thumb-card {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 6px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .slide-thumb-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-      border-color: var(--accent);
-    }
-
-    .slide-thumb-card img {
-      width: 100%;
-      height: 105px;
-      object-fit: cover;
-      border-radius: 4px;
-      display: block;
-    }
-
-    .slide-thumb-caption {
-      margin-top: 5px;
-      font-size: 0.76rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    .slide-unloaded-hint {
-      font-size: 0.83rem;
-      color: var(--text-muted);
-      background: #ffffff;
-      border: 1px dashed #94a3b8;
-      border-radius: 6px;
-      padding: 10px 12px;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      margin: 12px 0;
-    }
-
-    table.data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
-
-    table.data-table th,
-    table.data-table td {
-      border: 1px solid #cbd5e1;
-      padding: 9px 11px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    table.data-table th {
-      background: #f1f5f9;
-      color: #0f172a;
-      font-weight: 700;
-    }
-
-    details.ref-drawer {
-      margin-top: 12px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 10px 14px;
-    }
-
-    details.ref-drawer summary {
-      cursor: pointer;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-      user-select: none;
-    }
-
-    details.ref-drawer .ref-body {
-      margin-top: 8px;
-      font-size: 0.83rem;
-      color: var(--text-muted);
-    }
-
-    /* 工具箱樣式 */
-    .toolbox-subnav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .tool-subtab-btn {
-      padding: 10px 16px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: #ffffff;
-      color: var(--text-main);
-      font-size: 0.92rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-
-    .tool-subtab-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #ffffff;
-    }
-
-    .tool-panel {
-      display: none;
-    }
-
-    .tool-panel.active {
-      display: block;
-    }
-
-    .calc-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-
-    @media (max-width: 980px) {
-      .calc-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .panel-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 18px;
-    }
-
-    .panel-card h3 {
-      margin: 0 0 12px;
-      font-size: 1.1rem;
-      color: var(--primary-dark);
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 8px;
-    }
-
-    .form-row-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .form-row-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    @media (max-width: 640px) {
-      .form-row-3, .form-row-2 {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .field-group label {
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #334155;
-    }
-
-    .field-group input,
-    .field-group select {
-      padding: 8px 10px;
-      border: 1px solid #94a3b8;
-      border-radius: 7px;
-      font-size: 0.9rem;
-      background: #ffffff;
-      color: var(--text-main);
-    }
-
-    .check-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
-      gap: 8px;
-      margin: 8px 0 14px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.84rem;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      padding: 6px 9px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .kpi-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    @media (max-width: 640px) {
-      .kpi-strip {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .kpi-box {
-      background: #f8fafc;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 10px 12px;
-    }
-
-    .kpi-label {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-
-    .kpi-val {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-top: 2px;
-    }
-
-    .kpi-sub {
-      font-size: 0.76rem;
-      color: var(--text-muted);
-    }
-
-    .drug-eval-card {
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-      background: #ffffff;
-    }
-
-    .drug-eval-card.status-green {
-      border-left: 5px solid #16a34a;
-      background: #f0fdf4;
-    }
-
-    .drug-eval-card.status-yellow {
-      border-left: 5px solid #eab308;
-      background: #fefce8;
-    }
-
-    .drug-eval-card.status-red {
-      border-left: 5px solid #dc2626;
-      background: #fef2f2;
-    }
-
-    .drug-eval-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
-
-    .drug-eval-notes {
-      font-size: 0.84rem;
-      color: #334155;
-      margin: 4px 0 0;
-      padding-left: 18px;
-    }
-
-    .mode-switch-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      background: var(--primary-light);
-      border: 1px solid #99f6e4;
-      border-radius: 8px;
-      padding: 10px 14px;
-      margin-bottom: 14px;
-    }
-
-    .seg-group {
-      display: inline-flex;
-      border: 1px solid var(--primary);
-      border-radius: 7px;
-      overflow: hidden;
-    }
-
-    .seg-btn {
-      padding: 6px 12px;
-      border: none;
-      background: #ffffff;
-      color: var(--primary-dark);
-      font-size: 0.83rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .seg-btn.active {
-      background: var(--primary);
-      color: #ffffff;
-    }
-
-    .summary-preview-box {
-      background: #0f172a;
-      color: #e2e8f0;
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.8rem;
-      white-space: pre-wrap;
-      margin-top: 10px;
-      max-height: 240px;
-      overflow-y: auto;
-    }
-
-    .result-callout {
-      border-radius: 8px;
-      padding: 14px 16px;
-      border: 1px solid #cbd5e1;
-      background: #f8fafc;
-      margin-top: 12px;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: #ffffff;
-      border: none;
-      padding: 9px 16px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-
-    .btn-secondary {
-      background: #e2e8f0;
-      color: #1e293b;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-size: 0.86rem;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .btn-secondary:hover {
-      background: #cbd5e1;
-    }
-
-    .btn-reveal-ans {
-      background: #fffbeb;
-      color: #92400e;
-      border: 1px solid #fcd34d;
-      padding: 6px 12px;
-      border-radius: 7px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-reveal-ans:hover {
-      background: #fef3c7;
-    }
-
-    .btn-poll {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #93c5fd;
-      padding: 6px 12px;
-      border-radius: 7px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .btn-poll:hover {
-      background: #dbeafe;
-    }
-
-    /* 案例闖關模擬樣式 */
-    .quiz-dashboard {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 16px 20px;
-      margin-bottom: 18px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .quiz-stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .stat-pill {
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 7px 14px;
-      font-size: 0.88rem;
-      font-weight: 700;
-    }
-
-    .stat-pill span {
-      color: var(--primary-dark);
-      font-size: 1.05rem;
-    }
-
-    .quiz-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-
-    .filter-chip {
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .filter-chip.active {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #ffffff;
-    }
-
-    .case-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .case-meta {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .case-category-tag {
-      background: var(--primary-light);
-      color: var(--primary-dark);
-      border: 1px solid #99f6e4;
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    .case-vignette {
-      background: #f8fafc;
-      border-left: 4px solid var(--accent);
-      padding: 12px 15px;
-      border-radius: 6px;
-      margin: 10px 0 14px;
-      font-size: 0.94rem;
-    }
-
-    .option-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .option-btn {
-      width: 100%;
-      text-align: left;
-      padding: 11px 14px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: var(--text-main);
-      font-size: 0.92rem;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    .option-btn:hover:not(:disabled) {
-      background: #f0f9ff;
-      border-color: var(--accent);
-    }
-
-    .option-btn:disabled {
-      cursor: default;
-    }
-
-    .option-btn.opt-correct {
-      background: var(--risk-green-bg);
-      border-color: #16a34a;
-      color: var(--risk-green-text);
-      font-weight: 700;
-    }
-
-    .option-btn.opt-wrong {
-      background: var(--risk-red-bg);
-      border-color: #dc2626;
-      color: var(--risk-red-text);
-    }
-
-    .case-explanation {
-      margin-top: 14px;
-      padding: 14px 16px;
-      border-radius: 8px;
-      background: #f0fdf4;
-      border: 1px solid #86efac;
-      font-size: 0.9rem;
-    }
-
-    .case-explanation.wrong-banner {
-      background: #fefce8;
-      border-color: #fde047;
-    }
-
-    .case-explanation.reveal-banner {
-      background: #f0f9ff;
-      border-color: #7dd3fc;
-    }
-
-    .case-actions-bar {
-      margin-top: 12px;
-      padding-top: 10px;
-      border-top: 1px dashed #e2e8f0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .case-btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    /* 現場 QR Code 投票與長條圖面板（SOP v1.5） */
-    .live-poll-panel {
-      margin-top: 14px;
-      background: #f8fafc;
-      border: 1px solid #93c5fd;
-      border-radius: 10px;
-      padding: 16px;
-    }
-
-    .poll-grid {
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      gap: 18px;
-      align-items: center;
-    }
-
-    @media (max-width: 720px) {
-      .poll-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .qr-box {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: 8px;
-      padding: 10px;
-      text-align: center;
-    }
-
-    .poll-bar-row {
-      margin-bottom: 10px;
-    }
-
-    .poll-bar-label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.86rem;
-      font-weight: 700;
-      margin-bottom: 4px;
-      gap: 8px;
-    }
-
-    .poll-track {
-      width: 100%;
-      height: 22px;
-      background: #e2e8f0;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .poll-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--primary));
-      border-radius: 999px;
-      transition: width 0.25s ease;
-      min-width: 0%;
-    }
-
-    .poll-fill.is-correct-bar {
-      background: linear-gradient(90deg, #16a34a, #15803d);
-    }
-
-    .manual-vote-btns {
-      display: inline-flex;
-      gap: 4px;
-    }
-
-    .tiny-vote-btn {
-      border: 1px solid #cbd5e1;
-      background: #ffffff;
-      color: #1e293b;
-      border-radius: 4px;
-      padding: 1px 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .tiny-vote-btn:hover {
-      background: #e2e8f0;
-    }
-
-    /* 講課連續播放檢視器 */
-    dialog.lightbox-dialog {
-      border: none;
-      border-radius: 12px;
-      padding: 18px;
-      max-width: 980px;
-      width: 94vw;
-      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35);
-      background: #ffffff;
-    }
-
-    dialog.lightbox-dialog::backdrop {
-      background: rgba(15, 23, 42, 0.72);
-    }
-
-    .lightbox-top {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .lightbox-top strong {
-      color: var(--primary-dark);
-      font-size: 1.05rem;
-    }
-
-    .lightbox-controls {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav-slide-btn {
-      background: var(--primary);
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      padding: 7px 14px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .nav-slide-btn:hover:not(:disabled) {
-      background: var(--primary-dark);
-    }
-
-    .nav-slide-btn:disabled {
-      background: #cbd5e1;
-      color: #64748b;
-      cursor: not-allowed;
-    }
-
-    .lightbox-close-btn {
-      background: #e2e8f0;
-      color: #1e293b;
-      border: none;
-      border-radius: 6px;
-      padding: 7px 12px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .lightbox-stage {
-      text-align: center;
-      background: #0f172a;
-      border-radius: 8px;
-      padding: 8px;
-    }
-
-    .lightbox-dialog img {
-      width: 100%;
-      max-height: 72vh;
-      object-fit: contain;
-      border-radius: 4px;
-    }
-
-    .lightbox-footer {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.83rem;
-      color: var(--text-muted);
-    }
-
-    /* 聽眾手機投票模式專屬畫面（當網址帶有 ?vote=case01&room=xxxx 時啟用） */
-    .audience-voter-shell {
-      max-width: 540px;
-      margin: 24px auto;
-      padding: 20px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: var(--shadow-md);
-    }
-
-    .voter-choice-btn {
-      width: 100%;
-      text-align: left;
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      border-radius: 10px;
-      border: 2px solid #cbd5e1;
-      background: #f8fafc;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--text-main);
-      cursor: pointer;
-    }
-
-    .voter-choice-btn:hover {
-      border-color: var(--primary);
-      background: var(--primary-light);
-    }
+    .subtab-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+    .subtab-panel ul { margin: 0; padding-left: 20px; }
+    .subtab-panel li { margin-bottom: 8px; }
+
+    .slide-embed-box { margin-top: 14px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px 14px; }
+    .slide-embed-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 0.85rem; font-weight: 700; color: var(--primary-dark); }
+    .btn-play-slides { background: var(--accent); color: #ffffff; border: none; border-radius: 6px; padding: 5px 11px; font-size: 0.8rem; font-weight: 600; cursor: pointer; }
+    .slide-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 10px; }
+    .slide-thumb-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px; text-align: center; cursor: pointer; }
+    .slide-thumb-card img { width: 100%; height: 105px; object-fit: cover; border-radius: 4px; display: block; }
+    .slide-thumb-caption { margin-top: 5px; font-size: 0.76rem; color: var(--text-muted); font-weight: 600; }
+    .slide-unloaded-hint { font-size: 0.83rem; color: var(--text-muted); background: #ffffff; border: 1px dashed #94a3b8; border-radius: 6px; padding: 10px 12px; }
+
+    .table-wrap { overflow-x: auto; margin: 12px 0; }
+    table.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+    table.data-table th, table.data-table td { border: 1px solid #cbd5e1; padding: 9px 11px; text-align: left; vertical-align: top; }
+    table.data-table th { background: #f1f5f9; color: #0f172a; font-weight: 700; }
+
+    details.ref-drawer { margin-top: 12px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; }
+    details.ref-drawer summary { cursor: pointer; font-size: 0.85rem; font-weight: 700; color: var(--primary-dark); user-select: none; }
+    details.ref-drawer .ref-body { margin-top: 8px; font-size: 0.83rem; color: var(--text-muted); }
+
+    .toolbox-subnav { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .tool-subtab-btn { padding: 10px 16px; border-radius: 8px; border: 1px solid var(--border); background: #ffffff; color: var(--text-main); font-size: 0.92rem; font-weight: 700; cursor: pointer; }
+    .tool-subtab-btn.active { background: var(--accent); border-color: var(--accent); color: #ffffff; }
+    .tool-panel { display: none; }
+    .tool-panel.active { display: block; }
+
+    .calc-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 22px; align-items: start; }
+    @media (max-width: 980px) { .calc-grid { grid-template-columns: 1fr; } }
+
+    .panel-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; box-shadow: var(--shadow-sm); margin-bottom: 18px; }
+    .panel-card h3 { margin: 0 0 12px; font-size: 1.1rem; color: var(--primary-dark); border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; }
+
+    .form-row-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+    .form-row-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 12px; }
+    @media (max-width: 640px) { .form-row-3, .form-row-2 { grid-template-columns: 1fr; } }
+
+    .field-group { display: flex; flex-direction: column; gap: 4px; }
+    .field-group label { font-size: 0.84rem; font-weight: 700; color: #334155; }
+    .field-group input, .field-group select { padding: 8px 10px; border: 1px solid #94a3b8; border-radius: 7px; font-size: 0.9rem; background: #ffffff; color: var(--text-main); }
+
+    .check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); gap: 8px; margin: 8px 0 14px; }
+    .check-item { display: flex; align-items: center; gap: 6px; font-size: 0.84rem; background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px 9px; border-radius: 6px; cursor: pointer; }
+
+    .kpi-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 14px; }
+    @media (max-width: 640px) { .kpi-strip { grid-template-columns: 1fr; } }
+
+    .kpi-box { background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px 12px; }
+    .kpi-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; }
+    .kpi-val { font-size: 1.15rem; font-weight: 800; color: var(--primary-dark); margin-top: 2px; }
+    .kpi-sub { font-size: 0.76rem; color: var(--text-muted); }
+
+    .drug-eval-card { border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px 14px; margin-bottom: 10px; background: #ffffff; }
+    .drug-eval-card.status-green { border-left: 5px solid #16a34a; background: #f0fdf4; }
+    .drug-eval-card.status-yellow { border-left: 5px solid #eab308; background: #fefce8; }
+    .drug-eval-card.status-red { border-left: 5px solid #dc2626; background: #fef2f2; }
+    .drug-eval-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 4px; }
+    .drug-eval-notes { font-size: 0.84rem; color: #334155; margin: 4px 0 0; padding-left: 18px; }
+
+    .mode-switch-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; background: var(--primary-light); border: 1px solid #99f6e4; border-radius: 8px; padding: 10px 14px; margin-bottom: 14px; }
+    .seg-group { display: inline-flex; border: 1px solid var(--primary); border-radius: 7px; overflow: hidden; }
+    .seg-btn { padding: 6px 12px; border: none; background: #ffffff; color: var(--primary-dark); font-size: 0.83rem; font-weight: 700; cursor: pointer; }
+    .seg-btn.active { background: var(--primary); color: #ffffff; }
+
+    .summary-preview-box { background: #0f172a; color: #e2e8f0; border-radius: 8px; padding: 12px 14px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 0.8rem; white-space: pre-wrap; margin-top: 10px; max-height: 240px; overflow-y: auto; }
+    .result-callout { border-radius: 8px; padding: 14px 16px; border: 1px solid #cbd5e1; background: #f8fafc; margin-top: 12px; }
+
+    .btn-primary { background: var(--primary); color: #ffffff; border: none; padding: 9px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 600; cursor: pointer; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary { background: #e2e8f0; color: #1e293b; border: none; padding: 8px 14px; border-radius: 8px; font-size: 0.86rem; font-weight: 600; cursor: pointer; }
+    .btn-secondary:hover { background: #cbd5e1; }
+
+    .btn-reveal-ans { background: #fffbeb; color: #92400e; border: 1px solid #fcd34d; padding: 6px 12px; border-radius: 7px; font-size: 0.82rem; font-weight: 700; cursor: pointer; }
+    .btn-poll { background: #eff6ff; color: #1d4ed8; border: 1px solid #93c5fd; padding: 6px 12px; border-radius: 7px; font-size: 0.82rem; font-weight: 700; cursor: pointer; }
+
+    .quiz-dashboard { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; margin-bottom: 18px; box-shadow: var(--shadow-sm); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; }
+    .quiz-stats { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .stat-pill { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 7px 14px; font-size: 0.88rem; font-weight: 700; }
+    .stat-pill span { color: var(--primary-dark); font-size: 1.05rem; }
+
+    .quiz-filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .filter-chip { padding: 7px 14px; border-radius: 999px; border: 1px solid #cbd5e1; background: #ffffff; color: var(--text-muted); font-size: 0.85rem; font-weight: 700; cursor: pointer; }
+    .filter-chip.active { background: var(--primary); border-color: var(--primary); color: #ffffff; }
+
+    .case-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+    .case-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .case-category-tag { background: var(--primary-light); color: var(--primary-dark); border: 1px solid #99f6e4; padding: 2px 10px; border-radius: 999px; font-size: 0.78rem; font-weight: 700; }
+    .case-vignette { background: #f8fafc; border-left: 4px solid var(--accent); padding: 12px 15px; border-radius: 6px; margin: 10px 0 14px; font-size: 0.94rem; }
+
+    .option-list { display: flex; flex-direction: column; gap: 8px; }
+    .option-btn { width: 100%; text-align: left; padding: 11px 14px; border-radius: 8px; border: 1px solid #cbd5e1; background: #ffffff; color: var(--text-main); font-size: 0.92rem; cursor: pointer; display: flex; align-items: flex-start; gap: 10px; }
+    .option-btn:disabled { cursor: default; }
+    .option-btn.opt-correct { background: var(--risk-green-bg); border-color: #16a34a; color: var(--risk-green-text); font-weight: 700; }
+    .option-btn.opt-wrong { background: var(--risk-red-bg); border-color: #dc2626; color: var(--risk-red-text); }
+
+    .case-explanation { margin-top: 14px; padding: 14px 16px; border-radius: 8px; background: #f0fdf4; border: 1px solid #86efac; font-size: 0.9rem; }
+    .case-explanation.wrong-banner { background: #fefce8; border-color: #fde047; }
+    .case-explanation.reveal-banner { background: #f0f9ff; border-color: #7dd3fc; }
+
+    .case-actions-bar { margin-top: 12px; padding-top: 10px; border-top: 1px dashed #e2e8f0; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--text-muted); }
+    .case-btn-group { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+    .live-poll-panel { margin-top: 14px; background: #f8fafc; border: 1px solid #93c5fd; border-radius: 10px; padding: 16px; }
+    .poll-grid { display: grid; grid-template-columns: 230px 1fr; gap: 18px; align-items: center; }
+    @media (max-width: 720px) { .poll-grid { grid-template-columns: 1fr; } }
+
+    .qr-box { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 10px; text-align: center; }
+    .poll-bar-row { margin-bottom: 10px; }
+    .poll-bar-label { display: flex; justify-content: space-between; align-items: center; font-size: 0.86rem; font-weight: 700; margin-bottom: 4px; gap: 8px; }
+    .poll-track { width: 100%; height: 22px; background: #e2e8f0; border-radius: 999px; overflow: hidden; }
+    .poll-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--primary)); border-radius: 999px; transition: width 0.25s ease; }
+    .poll-fill.is-correct-bar { background: linear-gradient(90deg, #16a34a, #15803d); }
+
+    .manual-vote-btns { display: inline-flex; gap: 4px; }
+    .tiny-vote-btn { border: 1px solid #cbd5e1; background: #ffffff; color: #1e293b; border-radius: 4px; padding: 2px 7px; font-size: 0.75rem; font-weight: 700; cursor: pointer; }
+    .tiny-vote-btn:hover { background: #e2e8f0; }
+
+    dialog.lightbox-dialog { border: none; border-radius: 12px; padding: 18px; max-width: 980px; width: 94vw; box-shadow: 0 20px 50px rgba(15, 23, 42, 0.35); background: #ffffff; }
+    dialog.lightbox-dialog::backdrop { background: rgba(15, 23, 42, 0.72); }
+    .lightbox-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .lightbox-top strong { color: var(--primary-dark); font-size: 1.05rem; }
+    .lightbox-controls { display: flex; align-items: center; gap: 8px; }
+    .nav-slide-btn { background: var(--primary); color: #ffffff; border: none; border-radius: 6px; padding: 7px 14px; font-size: 0.88rem; font-weight: 700; cursor: pointer; }
+    .nav-slide-btn:disabled { background: #cbd5e1; color: #64748b; cursor: not-allowed; }
+    .lightbox-close-btn { background: #e2e8f0; color: #1e293b; border: none; border-radius: 6px; padding: 7px 12px; font-weight: 700; cursor: pointer; }
+    .lightbox-stage { text-align: center; background: #0f172a; border-radius: 8px; padding: 8px; }
+    .lightbox-dialog img { width: 100%; max-height: 72vh; object-fit: contain; border-radius: 4px; }
+    .lightbox-footer { margin-top: 10px; display: flex; justify-content: space-between; align-items: center; font-size: 0.83rem; color: var(--text-muted); }
+
+    .audience-voter-shell { max-width: 540px; margin: 24px auto; padding: 20px; background: #ffffff; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow-md); }
+    .voter-choice-btn { width: 100%; text-align: left; padding: 14px 16px; margin-bottom: 10px; border-radius: 10px; border: 2px solid #cbd5e1; background: #f8fafc; font-size: 1rem; font-weight: 700; color: var(--text-main); cursor: pointer; }
+    .voter-choice-btn:hover { border-color: var(--primary); background: var(--primary-light); }
   </style>
 </head>
 <body>
 
-  <!-- 聽眾手機掃 QR Code 投票模式容器（預設隱藏，掃碼帶參數時自動顯示） -->
   <div id="audienceVoterView" class="audience-voter-shell" style="display:none;"></div>
 
-  <!-- 講者／自學主平台容器 -->
   <div id="mainPlatformShell">
     <header class="app-header">
       <div class="header-inner">
         <div class="header-title">
           <h1>2026 DOACs 臨床應用與審方互動平台</h1>
-          <p>抗凝血門診藥事照護系列課程 ｜ 改編自林明燊藥師 199 頁簡報（SOP v1.5 最終版）</p>
+          <p>抗凝血門診藥事照護系列課程 ｜ 改編自林明燊藥師 199 頁簡報（SOP v1.6）</p>
         </div>
-        <div class="header-badge">SOP v1.5 全量交付・Stage 5 驗收通過</div>
+        <div class="header-badge">SOP v1.6：真實 QR 編碼＋複製連結</div>
       </div>
     </header>
 
@@ -1273,7 +421,6 @@
     </nav>
 
     <main class="container">
-      <!-- 模組一：系統化互動講義 -->
       <section id="view-lecture" class="module-view active">
         <div class="slide-loader-bar">
           <div class="slide-loader-info">
@@ -1305,7 +452,6 @@
         </div>
       </section>
 
-      <!-- 模組二：臨床審方工具箱 -->
       <section id="view-toolbox" class="module-view">
         <div class="toolbox-subnav">
           <button class="tool-subtab-btn active" data-tool="calc" onclick="switchToolSubtab('calc')">
@@ -1554,7 +700,6 @@
         </div>
       </section>
 
-      <!-- 模組三：13 題全案例互動決策模擬 + QR Code 即時投票 -->
       <section id="view-cases" class="module-view">
         <div class="quiz-dashboard">
           <div class="quiz-stats">
@@ -1581,7 +726,6 @@
     </main>
   </div>
 
-  <!-- 講課連續翻頁檢視器 -->
   <dialog id="slideLightbox" class="lightbox-dialog">
     <div class="lightbox-top">
       <strong id="lightboxTitle">簡報頁面預覽</strong>
@@ -1601,9 +745,6 @@
   </dialog>
 
   <script>
-    /* =========================================================================
-       臨床知識庫資料（SOP v1.5 完整補齊 ATHENS、COBRRA、Subclinical AF 頁碼）
-       ========================================================================= */
     const LECTURE_CHAPTERS = [
       {
         id: "ch1",
@@ -2067,9 +1208,6 @@
       }
     ];
 
-    /* =========================================================================
-       簡報圖片資料夾載入與連續翻頁引擎
-       ========================================================================= */
     const slideUrlMap = new Map();
     let playlistItems = [];
     let currentPlaylistIndex = 0;
@@ -2081,9 +1219,7 @@
 
       let matchedCount = 0;
       files.forEach((file) => {
-        if (file.name.startsWith("._") || file.webkitRelativePath.includes("__MACOSX")) {
-          return;
-        }
+        if (file.name.startsWith("._") || file.webkitRelativePath.includes("__MACOSX")) return;
         const match = file.name.match(/\.(\d{3})\.(jpe?g|png|webp)$/i);
         if (match) {
           const pageNum = parseInt(match[1], 10);
@@ -2120,9 +1256,7 @@
       updateLightboxView();
 
       const dlg = document.getElementById("slideLightbox");
-      if (!dlg.open) {
-        dlg.showModal();
-      }
+      if (!dlg.open) dlg.showModal();
     }
 
     function updateLightboxView() {
@@ -2145,20 +1279,13 @@
       }
     }
 
-    function closeSlideLightbox() {
-      document.getElementById("slideLightbox").close();
-    }
+    function closeSlideLightbox() { document.getElementById("slideLightbox").close(); }
 
     document.addEventListener("keydown", (e) => {
       const dlg = document.getElementById("slideLightbox");
       if (!dlg || !dlg.open) return;
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        stepSlide(-1);
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        stepSlide(1);
-      }
+      if (e.key === "ArrowLeft") { e.preventDefault(); stepSlide(-1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); stepSlide(1); }
     });
 
     function renderSlideEmbedSection(card) {
@@ -2168,9 +1295,7 @@
       if (slideUrlMap.size === 0) {
         return `
           <div class="slide-embed-box">
-            <div class="slide-embed-header">
-              <span>🖼️ 原簡報畫面鑲嵌區（對應頁碼：P.${pages.join(", P.")}）</span>
-            </div>
+            <div class="slide-embed-header"><span>🖼️ 原簡報畫面鑲嵌區（對應頁碼：P.${pages.join(", P.")}）</span></div>
             <div class="slide-unloaded-hint">
               尚未載入本機簡報圖片資料夾。點擊上方「<strong>📁 載入簡報圖片資料夾</strong>」並選取解壓縮後的資料夾，即可在此連續翻頁檢視 P.${pages.join(", P.")} 簡報畫面。
             </div>
@@ -2186,9 +1311,7 @@
         if (!imgUrl) {
           return `
             <div class="slide-thumb-card" style="cursor:default; opacity:0.65;">
-              <div style="height:105px; display:flex; align-items:center; justify-content:center; background:#f1f5f9; border-radius:4px; font-size:0.78rem; color:#64748b;">
-                查無 P.${p} 圖檔
-              </div>
+              <div style="height:105px; display:flex; align-items:center; justify-content:center; background:#f1f5f9; border-radius:4px; font-size:0.78rem; color:#64748b;">查無 P.${p} 圖檔</div>
               <div class="slide-thumb-caption">第 ${p} 頁（未收錄）</div>
             </div>
           `;
@@ -2217,19 +1340,12 @@
       `;
     }
 
-    /* =========================================================================
-       審方計算引擎（Stage 3）
-       ========================================================================= */
     let guidelineMode = "TW";
     let latestSummaryText = "";
 
     function switchToolSubtab(toolId) {
-      document.querySelectorAll(".tool-subtab-btn").forEach((b) => {
-        b.classList.toggle("active", b.dataset.tool === toolId);
-      });
-      document.querySelectorAll(".tool-panel").forEach((p) => {
-        p.classList.remove("active");
-      });
+      document.querySelectorAll(".tool-subtab-btn").forEach((b) => b.classList.toggle("active", b.dataset.tool === toolId));
+      document.querySelectorAll(".tool-panel").forEach((p) => p.classList.remove("active"));
       document.getElementById(`tool-${toolId}`).classList.add("active");
     }
 
@@ -2253,24 +1369,12 @@
       document.getElementById("ptLiver").value = "normal";
       document.getElementById("ptRoute").value = "oral";
 
-      document.getElementById("rfHF").checked = false;
-      document.getElementById("rfHTN").checked = false;
-      document.getElementById("rfDM").checked = false;
-      document.getElementById("rfStroke").checked = false;
-      document.getElementById("rfVasc").checked = false;
-      document.getElementById("rfBleedHx").checked = false;
-      document.getElementById("rfMechValve").checked = false;
-      document.getElementById("rfModSevereMS").checked = false;
-
-      document.getElementById("drugAmiodarone").checked = true;
-      document.getElementById("drugDronedarone").checked = false;
-      document.getElementById("drugStrongPgpInh").checked = false;
-      document.getElementById("drugStrongAzoleRito").checked = false;
-      document.getElementById("drugRifampin").checked = false;
-      document.getElementById("drugAspirin").checked = false;
-      document.getElementById("drugDAPT").checked = false;
-      document.getElementById("drugNSAID").checked = false;
-
+      ["rfHF","rfHTN","rfDM","rfStroke","rfVasc","rfBleedHx","rfMechValve","rfModSevereMS"].forEach((id) => {
+        document.getElementById(id).checked = false;
+      });
+      ["drugAmiodarone","drugDronedarone","drugStrongPgpInh","drugStrongAzoleRito","drugRifampin","drugAspirin","drugDAPT","drugNSAID"].forEach((id) => {
+        document.getElementById(id).checked = id === "drugAmiodarone";
+      });
       runClinicalCalculation();
     }
 
@@ -2305,8 +1409,7 @@
       const sexFactor = sex === "F" ? 0.85 : 1.0;
       const crcl = ((140 - age) * weight * sexFactor) / (72 * scr);
       const crclStr = crcl.toFixed(1);
-      const heightM = heightCm / 100;
-      const bmi = weight / (heightM * heightM);
+      const bmi = weight / Math.pow(heightCm / 100, 2);
       const bmiStr = bmi.toFixed(1);
 
       document.getElementById("outCrCl").textContent = isDialysis ? `${crclStr} mL/min（透析）` : `${crclStr} mL/min`;
@@ -2321,11 +1424,10 @@
       if (rfStroke) chadsVa += 2;
       if (rfVasc) chadsVa += 1;
 
-      const chadsHint = chadsVa >= 2
+      document.getElementById("outChadsVa").textContent = `${chadsVa} 分`;
+      document.getElementById("outChadsHint").textContent = chadsVa >= 2
         ? "≥2 分：建議抗凝治療（ESC 2024）"
         : (chadsVa === 1 ? "1 分：應考慮抗凝治療（ESC 2024）" : "0 分：一般不建議常規抗凝");
-      document.getElementById("outChadsVa").textContent = `${chadsVa} 分`;
-      document.getElementById("outChadsHint").textContent = chadsHint;
 
       let doacScore = 0;
       if (age >= 80) doacScore += 5;
@@ -2333,9 +1435,9 @@
       else if (age >= 70) doacScore += 3;
       else if (age >= 65) doacScore += 2;
 
-      const effectiveCrClForScore = isDialysis ? Math.min(crcl, 14) : crcl;
-      if (effectiveCrClForScore < 30) doacScore += 2;
-      else if (effectiveCrClForScore <= 60) doacScore += 1;
+      const effCrCl = isDialysis ? Math.min(crcl, 14) : crcl;
+      if (effCrCl < 30) doacScore += 2;
+      else if (effCrCl <= 60) doacScore += 1;
 
       if (bmi < 18.5) doacScore += 1;
       if (rfStroke) doacScore += 1;
@@ -2349,19 +1451,11 @@
 
       let doacLevel = "極低（0–3）";
       let doacRate = "預估年出血率：0.6–1.4%";
-      if (doacScore >= 10) {
-        doacLevel = `極高（${doacScore} 分，≥10 視同 10）`;
-        doacRate = "預估年出血率：3.7–13.9%";
-      } else if (doacScore >= 8) {
-        doacLevel = `高風險（${doacScore} 分）`;
-        doacRate = "預估年出血率：3.3–6.9%";
-      } else if (doacScore >= 6) {
-        doacLevel = `中度風險（${doacScore} 分）`;
-        doacRate = "預估年出血率：2.1–3.4%";
-      } else if (doacScore >= 4) {
-        doacLevel = `低風險（${doacScore} 分）`;
-        doacRate = "預估年出血率：1.5–2.0%";
-      }
+      if (doacScore >= 10) { doacLevel = `極高（${doacScore} 分，≥10 視同 10）`; doacRate = "預估年出血率：3.7–13.9%"; }
+      else if (doacScore >= 8) { doacLevel = `高風險（${doacScore} 分）`; doacRate = "預估年出血率：3.3–6.9%"; }
+      else if (doacScore >= 6) { doacLevel = `中度風險（${doacScore} 分）`; doacRate = "預估年出血率：2.1–3.4%"; }
+      else if (doacScore >= 4) { doacLevel = `低風險（${doacScore} 分）`; doacRate = "預估年出血率：1.5–2.0%"; }
+
       document.getElementById("outDoacScore").textContent = doacLevel;
       document.getElementById("outDoacBleedRate").textContent = doacRate;
 
@@ -2372,246 +1466,128 @@
         evaluateDabigatran({ age, weight, crcl, isDialysis, liver, isTube, rfMechValve, rfModSevereMS, drugDronedarone, drugAmiodarone, mode: guidelineMode })
       ];
 
-      const listEl = document.getElementById("drugRecommendationsList");
-      listEl.innerHTML = drugs.map((d) => {
+      document.getElementById("drugRecommendationsList").innerHTML = drugs.map((d) => {
         const badgeText = d.status === "green" ? "建議／標準" : (d.status === "yellow" ? "減量／謹慎" : "禁用／避免");
         const badgeClass = d.status === "green" ? "risk-green" : (d.status === "yellow" ? "risk-yellow" : "risk-red");
-        const notesHtml = d.notes.map((n) => `<li>${n}</li>`).join("");
         return `
           <div class="drug-eval-card status-${d.status}">
             <div class="drug-eval-top">
-              <div>
-                <strong>${d.name}</strong>
-                <span style="margin-left:8px; font-weight:700; color:#0f172a;">${d.doseText}</span>
-              </div>
+              <div><strong>${d.name}</strong> <span style="margin-left:8px; font-weight:700;">${d.doseText}</span></div>
               <span class="risk-badge ${badgeClass}">${badgeText}</span>
             </div>
-            <ul class="drug-eval-notes">${notesHtml}</ul>
+            <ul class="drug-eval-notes">${d.notes.map((n) => `<li>${n}</li>`).join("")}</ul>
           </div>
         `;
       }).join("");
 
       const modeLabel = guidelineMode === "TW" ? "台灣仿單／健保規範" : "國際指引（FDA/EMA/ESC 2024）";
-      const summaryLines = [
+      latestSummaryText = [
         `【DOACs 臨床審方評估摘要｜${modeLabel}】`,
         `病人條件：${age}歲 ${sex === "F" ? "女" : "男"}，體重 ${weight} kg，BMI ${bmiStr}，SCr ${scr} mg/dL${isDialysis ? "（洗腎透析）" : ""}`,
         `腎功能與風險評分：CG CrCl = ${crclStr} mL/min | CHA2DS2-VA = ${chadsVa} 分 | DOAC Score = ${doacScore} 分`,
         `--- 四藥評估結論 ---`,
         ...drugs.map((d) => `• ${d.name}：${d.doseText}（${d.notes.join("；")}）`)
-      ];
-      latestSummaryText = summaryLines.join("\n");
+      ].join("\n");
       document.getElementById("summaryPreviewBox").textContent = latestSummaryText;
     }
 
     function evaluateApixaban(p) {
-      let status = "green";
-      let doseText = "5 mg bid（標準劑量）";
+      let status = "green", doseText = "5 mg bid（標準劑量）";
       const notes = [];
-
-      if (p.rfMechValve) {
-        status = "red"; doseText = "不建議／禁用";
-        notes.push("機械性瓣膜：ESC 禁用／ACC-AHA 首選 VKA");
-      }
-      if (p.rfModSevereMS) {
-        status = status === "red" ? "red" : "yellow";
-        if (status !== "red") doseText = "不建議（改評估 Warfarin）";
-        notes.push("中重度 MS：ACC/AHA 建議 Warfarin 優於 DOAC");
-      }
-
+      if (p.rfMechValve) { status = "red"; doseText = "不建議／禁用"; notes.push("機械性瓣膜：ESC 禁用／ACC-AHA 首選 VKA"); }
+      if (p.rfModSevereMS) { status = status === "red" ? "red" : "yellow"; if (status !== "red") doseText = "不建議（改評估 Warfarin）"; notes.push("中重度 MS：ACC/AHA 建議 Warfarin 優於 DOAC"); }
       if (status !== "red") {
-        let criteriaMet = 0;
-        if (p.age >= 80) criteriaMet++;
-        if (p.weight <= 60) criteriaMet++;
-        if (p.scr >= 1.5) criteriaMet++;
-
-        const singleRenalTwEma = (p.mode === "TW" || p.mode === "INTL") && !p.isDialysis && p.crcl >= 15 && p.crcl <= 29;
-        if (criteriaMet >= 2 || singleRenalTwEma) {
+        let c = 0; if (p.age >= 80) c++; if (p.weight <= 60) c++; if (p.scr >= 1.5) c++;
+        const singleRenal = !p.isDialysis && p.crcl >= 15 && p.crcl <= 29;
+        if (c >= 2 || singleRenal) {
           status = status === "green" ? "yellow" : status;
           doseText = "2.5 mg bid（減量劑量）";
-          const reasons = [];
-          if (criteriaMet >= 2) reasons.push(`符合減量三項中 ${criteriaMet} 項（≥80歲/≤60kg/SCr≥1.5）`);
-          if (singleRenalTwEma) reasons.push("CrCl 15–29 mL/min（台灣/EMA 單一腎功減量條件）");
-          notes.push(reasons.join("；"));
+          const r = []; if (c >= 2) r.push(`符合減量三項中 ${c} 項`); if (singleRenal) r.push("CrCl 15–29 mL/min 單一腎功條件");
+          notes.push(r.join("；"));
         }
-
-        if (p.isDialysis) {
-          notes.push("透析族群：台灣仿單未核准，AHA 2023 (2b) 可考慮文獻劑量（留意高劑量出血風險）");
-        }
+        if (p.isDialysis) notes.push("透析族群：台灣仿單未核准，AHA 2023 (2b) 可考慮文獻劑量");
       }
-
-      if (p.liver === "CPC") {
-        status = "red"; doseText = "不建議使用";
-        notes.push("Child-Pugh C 肝功能不全不建議");
-      } else if (p.liver === "CPB") {
-        status = status === "red" ? "red" : "yellow";
-        notes.push("Child-Pugh B 仿單無明確劑量建議／須謹慎");
-      }
-
+      if (p.liver === "CPC") { status = "red"; doseText = "不建議使用"; notes.push("Child-Pugh C 不建議"); }
+      else if (p.liver === "CPB") { status = status === "red" ? "red" : "yellow"; notes.push("Child-Pugh B 須謹慎"); }
       if (p.drugStrongAzoleRito) {
-        if (doseText.includes("2.5 mg")) {
-          status = "red"; doseText = "避免併用";
-          notes.push("已使用 2.5 mg bid 且併用強效 azole/ritonavir：避免併用");
-        } else {
-          status = status === "red" ? "red" : "yellow";
-          doseText = "減量 50%（2.5 mg bid）";
-          notes.push("併用強效 azole/ritonavir：劑量減半");
-        }
+        if (doseText.includes("2.5 mg")) { status = "red"; doseText = "避免併用"; notes.push("已 2.5 mg bid 且併用強效 azole/ritonavir：避免併用"); }
+        else { status = status === "red" ? "red" : "yellow"; doseText = "減量 50%（2.5 mg bid）"; notes.push("併用強效 azole/ritonavir：減半"); }
       }
-      if (p.drugRifampin) {
-        status = "red"; doseText = "避免併用";
-        notes.push("併用 Rifampin（強效誘導劑）：避免併用");
-      }
+      if (p.drugRifampin) { status = "red"; doseText = "避免併用"; notes.push("併用 Rifampin：避免併用"); }
       if (p.isTube) notes.push("可管灌給藥");
       if (notes.length === 0) notes.push("符合標準給藥條件");
       return { name: "Apixaban（艾必克凝）", status, doseText, notes };
     }
 
     function evaluateRivaroxaban(p) {
-      let status = "green";
-      let doseText = "20 mg qd（須隨餐）";
+      let status = "green", doseText = "20 mg qd（須隨餐）";
       const notes = [];
-
-      if (p.rfMechValve) {
-        status = "red"; doseText = "不建議／禁用";
-        notes.push("機械性瓣膜：ESC 禁用／ACC-AHA 首選 VKA");
-      }
-      if (p.rfModSevereMS && status !== "red") {
-        status = "yellow"; doseText = "不建議（改評估 Warfarin）";
-        notes.push("中重度 MS：建議 Warfarin");
-      }
-
+      if (p.rfMechValve) { status = "red"; doseText = "不建議／禁用"; notes.push("機械性瓣膜：ESC 禁用／ACC-AHA 首選 VKA"); }
+      if (p.rfModSevereMS && status !== "red") { status = "yellow"; doseText = "不建議（改評估 Warfarin）"; notes.push("中重度 MS：建議 Warfarin"); }
       if (status !== "red") {
         if (p.isDialysis || p.crcl < 15) {
           status = p.mode === "TW" ? "red" : "yellow";
-          doseText = p.mode === "TW" ? "禁用／未核准（CrCl <15）" : "CrCl <15 立場不一／審慎";
+          doseText = p.mode === "TW" ? "禁用／未核准（CrCl <15）" : "CrCl <15 審慎";
           notes.push("CrCl <15 mL/min 或透析：台灣仿單禁用／未核准");
         } else if (p.crcl <= 50) {
           status = "yellow";
-          if (p.mode === "TW") {
-            doseText = p.crcl < 30 ? "10–15 mg qd（15–30 須謹慎）" : "15–20 mg／台灣仿單 CrCl 15–50 為 10–15 mg qd";
-            notes.push("台灣仿單 CrCl 15–50 mL/min 建議 10–15 mg qd（10 mg 依 J-ROCKET AF）；避免不當減量");
-          } else {
-            doseText = "15 mg qd（腎功減量）";
-            notes.push("FDA/EMA/EHRA 腎功能減量為 15 mg qd");
-          }
+          doseText = p.mode === "TW" ? "10–15 mg qd（15–30 須謹慎）" : "15 mg qd（腎功減量）";
+          notes.push(p.mode === "TW" ? "台灣仿單 CrCl 15–50 給 10–15 mg qd（10 mg 依 J-ROCKET AF）" : "國外指引腎功減量 15 mg qd");
         }
       }
-
-      if (p.liver === "CPB" || p.liver === "CPC") {
-        status = "red"; doseText = "不建議使用";
-        notes.push("台灣仿單 NVAF 中重度肝病（Child-Pugh B/C）不建議");
-      }
-
-      if (p.drugStrongAzoleRito || p.drugRifampin) {
-        status = "red"; doseText = "避免併用";
-        notes.push("併用強效 azole/ritonavir 或 Rifampin：避免併用");
-      } else if (p.drugAmiodarone && p.mode === "TW" && p.crcl >= 30 && p.crcl <= 50) {
-        status = status === "red" ? "red" : "yellow";
-        notes.push("台灣仿單：CrCl 30–50 併用 amiodarone 須謹慎");
-      }
-
+      if (p.liver === "CPB" || p.liver === "CPC") { status = "red"; doseText = "不建議使用"; notes.push("台灣仿單 NVAF 中重度肝病不建議"); }
+      if (p.drugStrongAzoleRito || p.drugRifampin) { status = "red"; doseText = "避免併用"; notes.push("併用強效 azole/ritonavir 或 Rifampin：避免併用"); }
+      else if (p.drugAmiodarone && p.mode === "TW" && p.crcl >= 30 && p.crcl <= 50) { status = status === "red" ? "red" : "yellow"; notes.push("CrCl 30–50 併用 amiodarone 須謹慎"); }
       if (p.isTube) notes.push("可管灌給藥（15/20 mg 須隨餐）");
       if (notes.length === 0) notes.push("符合標準給藥條件（15/20 mg 須隨餐）");
       return { name: "Rivaroxaban（拜瑞妥）", status, doseText, notes };
     }
 
     function evaluateEdoxaban(p) {
-      let status = "green";
-      let doseText = "60 mg qd（標準劑量）";
+      let status = "green", doseText = "60 mg qd（標準劑量）";
       const notes = [];
-
-      if (p.rfMechValve) {
-        status = "red"; doseText = "不建議／禁用";
-        notes.push("機械性瓣膜：ESC 禁用／ACC-AHA 首選 VKA");
-      }
-      if (p.rfModSevereMS && status !== "red") {
-        status = "yellow"; doseText = "不建議（改評估 Warfarin）";
-        notes.push("中重度 MS：建議 Warfarin");
-      }
-
+      if (p.rfMechValve) { status = "red"; doseText = "不建議／禁用"; notes.push("機械性瓣膜：ESC 禁用／ACC-AHA 首選 VKA"); }
+      if (p.rfModSevereMS && status !== "red") { status = "yellow"; doseText = "不建議（改評估 Warfarin）"; notes.push("中重度 MS：建議 Warfarin"); }
       if (status !== "red") {
-        if (p.isDialysis || p.crcl < 15) {
-          status = "red"; doseText = "禁用（CrCl <15）";
-          notes.push("CrCl <15 mL/min 禁用");
-        } else {
+        if (p.isDialysis || p.crcl < 15) { status = "red"; doseText = "禁用（CrCl <15）"; notes.push("CrCl <15 mL/min 禁用"); }
+        else {
           const lowCrCl = p.crcl >= 15 && p.crcl <= 50;
           const lowWt = p.weight <= 60;
-          const pgpReduce = (p.mode === "TW" || p.mode === "INTL") && (p.drugDronedarone || p.drugStrongPgpInh);
-
+          const pgpReduce = p.drugDronedarone || p.drugStrongPgpInh;
           if (lowCrCl || lowWt || pgpReduce) {
-            status = "yellow";
-            doseText = "30 mg qd（減量劑量）";
+            status = "yellow"; doseText = "30 mg qd（減量劑量）";
             const conds = [];
             if (lowCrCl) conds.push("CrCl 15–50 mL/min");
             if (lowWt) conds.push("體重 ≤60 kg");
-            if (pgpReduce) conds.push("併用特定 P-gp 抑制劑（如 Dronedarone）");
+            if (pgpReduce) conds.push("併用特定 P-gp 抑制劑");
             notes.push(`符合減量條件（${conds.join("、")}）→ 30 mg qd`);
           }
         }
       }
-
-      if (p.liver === "CPC") {
-        status = "red"; doseText = "不建議使用";
-        notes.push("重度肝病不建議");
-      } else if (p.liver === "CPB" && p.mode === "INTL") {
-        status = status === "red" ? "red" : "yellow";
-        notes.push("FDA 標示 Child-Pugh B 不建議");
-      }
-
-      if (p.drugRifampin && p.mode === "INTL") {
-        status = "red"; doseText = "避免併用";
-        notes.push("FDA 建議避免併用 Rifampin");
-      }
+      if (p.liver === "CPC") { status = "red"; doseText = "不建議使用"; notes.push("重度肝病不建議"); }
+      else if (p.liver === "CPB" && p.mode === "INTL") { status = status === "red" ? "red" : "yellow"; notes.push("FDA 標示 Child-Pugh B 不建議"); }
+      if (p.drugRifampin && p.mode === "INTL") { status = "red"; doseText = "避免併用"; notes.push("FDA 建議避免併用 Rifampin"); }
       if (p.isTube) notes.push("可管灌給藥");
       if (notes.length === 0) notes.push("符合標準給藥條件");
       return { name: "Edoxaban（里先安）", status, doseText, notes };
     }
 
     function evaluateDabigatran(p) {
-      let status = "green";
-      let doseText = "150 mg bid 或依風險 110 mg bid";
+      let status = "green", doseText = "150 mg bid 或依風險 110 mg bid";
       const notes = [];
-
-      if (p.rfMechValve) {
-        status = "red"; doseText = "禁用";
-        notes.push("RE-ALIGN 試驗顯示機械瓣膜風險高，禁用");
-      }
-      if (p.rfModSevereMS && status !== "red") {
-        status = "yellow"; doseText = "不建議（改評估 Warfarin）";
-        notes.push("中重度 MS：建議 Warfarin");
-      }
-
+      if (p.rfMechValve) { status = "red"; doseText = "禁用"; notes.push("RE-ALIGN 試驗顯示機械瓣膜風險高，禁用"); }
+      if (p.rfModSevereMS && status !== "red") { status = "yellow"; doseText = "不建議（改評估 Warfarin）"; notes.push("中重度 MS：建議 Warfarin"); }
       if (status !== "red") {
-        if (p.isDialysis || p.crcl < 15) {
-          status = "red"; doseText = "禁用";
-          notes.push("CrCl <15 mL/min 或透析禁用");
-        } else if (p.crcl < 30) {
-          if (p.mode === "TW") {
-            status = "red"; doseText = "禁用（台灣仿單 CrCl <30）";
-            notes.push("台灣仿單 CrCl <30 mL/min 禁用");
-          } else {
-            status = "yellow"; doseText = "FDA 75 mg bid / EMA 禁用";
-            notes.push("CrCl 15–29 mL/min 各國規範不一，審慎評估");
-          }
+        if (p.isDialysis || p.crcl < 15) { status = "red"; doseText = "禁用"; notes.push("CrCl <15 mL/min 或透析禁用"); }
+        else if (p.crcl < 30) {
+          if (p.mode === "TW") { status = "red"; doseText = "禁用（台灣仿單 CrCl <30）"; notes.push("台灣仿單 CrCl <30 mL/min 禁用"); }
+          else { status = "yellow"; doseText = "FDA 75 mg bid / EMA 禁用"; notes.push("CrCl 15–29 mL/min 各國規範不一"); }
         } else if (p.crcl <= 50 || p.age >= 75 || p.weight < 50) {
-          status = "yellow";
-          doseText = "110 mg bid（高出血風險考量）";
-          notes.push("高齡／低體重／CrCl 30–50：可考慮 110 mg bid");
+          status = "yellow"; doseText = "110 mg bid（高出血風險考量）"; notes.push("高齡／低體重／CrCl 30–50：可考慮 110 mg bid");
         }
       }
-
-      if (p.drugDronedarone) {
-        status = "red"; doseText = "禁忌併用";
-        notes.push("併用 Dronedarone 為禁忌");
-      } else if (p.drugAmiodarone && p.mode === "INTL" && p.crcl >= 15 && p.crcl <= 30) {
-        status = "red"; doseText = "避免併用";
-        notes.push("CrCl 15–30 併用 amiodarone 避免");
-      }
-
-      if (p.isTube) {
-        status = "red";
-        notes.push("<strong>不可打開膠囊或磨粉管灌</strong>（生體可用率恐升 ~75% 且刺激性增加）");
-      }
+      if (p.drugDronedarone) { status = "red"; doseText = "禁忌併用"; notes.push("併用 Dronedarone 為禁忌"); }
+      if (p.isTube) { status = "red"; notes.push("<strong>不可打開膠囊或磨粉管灌</strong>"); }
       if (notes.length === 0) notes.push("符合標準給藥條件");
       return { name: "Dabigatran（普栓達）", status, doseText, notes };
     }
@@ -2633,405 +1609,249 @@
       const box = document.getElementById("periopResultBox");
 
       if (risk === "minimal") {
-        box.innerHTML = `
-          <span class="risk-badge risk-green">極低出血風險</span>
-          <strong>術前停藥建議</strong>：通常<strong>可能不需停藥</strong>（依術式與病人個別出血風險評估）。<br/>
-          <strong>橋接與重啟</strong>：不需肝素橋接；依原給藥時程續用。
-        `;
+        box.innerHTML = `<span class="risk-badge risk-green">極低出血風險</span> <strong>術前停藥建議</strong>：通常<strong>可能不需停藥</strong>；不需肝素橋接。`;
         return;
       }
-
       if (drug === "warfarin") {
-        box.innerHTML = `
-          <span class="risk-badge risk-yellow">Warfarin 圍術期</span>
-          <strong>術前評估</strong>：依 INR 數值與手術出血風險由醫師評估停藥天數與橋接策略（高血栓風險瓣膜等情境另議）。<br/>
-          <strong>術後重啟</strong>：止血穩定後重新給予 Warfarin，必要時依規範銜接抗凝劑。
-        `;
+        box.innerHTML = `<span class="risk-badge risk-yellow">Warfarin 圍術期</span> 依 INR 與手術出血風險由醫師評估停藥與橋接。`;
         return;
       }
-
       if (crclRange === "15_29") {
         if (drug === "dabigatran") {
-          box.innerHTML = `
-            <span class="risk-badge risk-red">CrCl 15–29 特殊提醒</span>
-            <strong>Dabigatran</strong>：台灣仿單於 CrCl &lt;30 mL/min 禁用；圍術期請依院內規範與專科醫師會診評估，<strong>一般不做肝素橋接</strong>。
-          `;
+          box.innerHTML = `<span class="risk-badge risk-red">CrCl 15–29 特殊提醒</span> 台灣仿單 CrCl &lt;30 禁用；一般不做肝素橋接。`;
           return;
         }
-        const hours = risk === "high" ? "≥ 48 小時" : "≥ 24–36 小時（依 EHRA 與術式風險評估）";
-        const postRestart = risk === "high" ? "48–72 小時（止血與血行動力學穩定後）" : "約 24 小時（止血穩定後）";
-        box.innerHTML = `
-          <span class="risk-badge risk-yellow">CrCl 15–29 改看 EHRA</span>
-          <strong>術前停藥建議</strong>：CrCl 15–29 mL/min 不在部分 ACC/AHA 簡表適用範圍（ACC/AHA Apixaban 限 CrCl &gt;25、Rivaroxaban &gt;30），<strong>改依 EHRA 建議停藥 ${hours}</strong>。<br/>
-          <strong>橋接與術後重啟</strong>：<strong>不做肝素橋接（COR 1 / EHRA 同）</strong>；術後重啟參考 ${postRestart}。
-        `;
+        const hours = risk === "high" ? "≥ 48 小時" : "≥ 24–36 小時";
+        const postRestart = risk === "high" ? "48–72 小時" : "約 24 小時";
+        box.innerHTML = `<span class="risk-badge risk-yellow">CrCl 15–29 改看 EHRA</span> <strong>術前停藥建議</strong>：改依 EHRA 建議停藥 <strong>${hours}</strong>，<strong>不做肝素橋接</strong>；術後重啟參考 <strong>${postRestart}</strong>。`;
         return;
       }
-
       const tableMap = {
-        apixaban: {
-          gt80: { low: "1 天", high: "2 天" },
-          "50_80": { low: "1 天", high: "2 天" },
-          "30_49": { low: "1 天", high: "2 天" }
-        },
-        rivaroxaban: {
-          gt80: { low: "1 天", high: "2 天" },
-          "50_80": { low: "1 天", high: "2 天" },
-          "30_49": { low: "1 天", high: "2 天" }
-        },
-        edoxaban: {
-          gt80: { low: "1 天", high: "2 天" },
-          "50_80": { low: "1 天", high: "2 天" },
-          "30_49": { low: "1 天", high: "2 天" }
-        },
-        dabigatran: {
-          gt80: { low: "1 天", high: "2 天" },
-          "50_80": { low: "1.5 天", high: "3 天" },
-          "30_49": { low: "2 天", high: "4 天" }
-        }
+        apixaban: { gt80: { low: "1 天", high: "2 天" }, "50_80": { low: "1 天", high: "2 天" }, "30_49": { low: "1 天", high: "2 天" } },
+        rivaroxaban: { gt80: { low: "1 天", high: "2 天" }, "50_80": { low: "1 天", high: "2 天" }, "30_49": { low: "1 天", high: "2 天" } },
+        edoxaban: { gt80: { low: "1 天", high: "2 天" }, "50_80": { low: "1 天", high: "2 天" }, "30_49": { low: "1 天", high: "2 天" } },
+        dabigatran: { gt80: { low: "1 天", high: "2 天" }, "50_80": { low: "1.5 天", high: "3 天" }, "30_49": { low: "2 天", high: "4 天" } }
       };
-
       const entry = tableMap[drug][crclRange];
       const preDays = risk === "high" ? entry.high : entry.low;
-      const postRestart = risk === "high" ? "48–72 小時（EHRA 參考，依止血與出血風險調整）" : "約 24 小時（依止血與血栓風險評估）";
-
-      box.innerHTML = `
-        <span class="risk-badge ${risk === "high" ? "risk-red" : "risk-yellow"}">${risk === "high" ? "高出血風險" : "低出血風險"}</span>
-        <strong>術前停藥建議（JACC 2017 對照）</strong>：停藥 <strong>${preDays}</strong>。<br/>
-        <strong>橋接與術後重啟</strong>：<strong>一般不做肝素橋接</strong>；術後重啟參考 <strong>${postRestart}</strong>。
-      `;
+      const postRestart = risk === "high" ? "48–72 小時" : "約 24 小時";
+      box.innerHTML = `<span class="risk-badge ${risk === "high" ? "risk-red" : "risk-yellow"}">${risk === "high" ? "高出血風險" : "低出血風險"}</span> <strong>術前停藥建議</strong>：停藥 <strong>${preDays}</strong>；<strong>一般不做肝素橋接</strong>；術後重啟參考 <strong>${postRestart}</strong>。`;
     }
 
     function runSwitchQuery() {
       const fromD = document.getElementById("fromDrug").value;
       const toD = document.getElementById("toDrug").value;
       const box = document.getElementById("switchResultBox");
-
-      if (fromD === toD) {
-        box.innerHTML = "<strong>目前與目標藥品類別相同</strong>，無須跨藥轉換。";
-        return;
-      }
-
+      if (fromD === toD) { box.innerHTML = "<strong>目前與目標藥品類別相同</strong>，無須跨藥轉換。"; return; }
       if (fromD === "warfarin") {
-        const inrMap = {
-          rivaroxaban: "INR &lt; 3 時可改用 Rivaroxaban",
-          apixaban: "INR &lt; 2 時可改用 Apixaban",
-          edoxaban: "INR &lt; 2 時可改用 Edoxaban",
-          dabigatran: "INR &lt; 2.5 時可改用 Dabigatran"
-        };
-        box.innerHTML = `<span class='risk-badge risk-yellow'>Warfarin → DOAC</span> <strong>${inrMap[toD] || "依 INR 門檻評估"}</strong>。`;
+        const inrMap = { rivaroxaban: "INR &lt; 3", apixaban: "INR &lt; 2", edoxaban: "INR &lt; 2", dabigatran: "INR &lt; 2.5" };
+        box.innerHTML = `<span class='risk-badge risk-yellow'>Warfarin → DOAC</span> 需 <strong>${inrMap[toD] || "依 INR"}</strong> 時可改用。`;
         return;
       }
-
       if (toD === "warfarin") {
         if (fromD === "dabigatran") {
-          box.innerHTML = `
-            <span class='risk-badge risk-yellow'>Dabigatran → Warfarin</span>
-            依 CrCl 提前開始併用 Warfarin 至 INR 達標：<br/>
-            • CrCl &gt;50 mL/min：停藥<strong>前 3 天</strong>開始併用<br/>
-            • CrCl 30–50 mL/min：停藥<strong>前 2 天</strong>開始併用<br/>
-            • CrCl 15–30 mL/min：停藥<strong>前 1 天</strong>開始併用
-          `;
+          box.innerHTML = `<span class='risk-badge risk-yellow'>Dabigatran → Warfarin</span> CrCl &gt;50 提前 <strong>3 天</strong>、30–50 提前 <strong>2 天</strong>、15–30 提前 <strong>1 天</strong>開始併用。`;
         } else if (fromD === "lmwh") {
-          box.innerHTML = `<span class='risk-badge risk-green'>LMWH → Warfarin</span> <strong>併用至 INR 達標（至少 5 天）</strong>。`;
+          box.innerHTML = `<span class='risk-badge risk-green'>LMWH → Warfarin</span> 併用至 INR 達標（至少 5 天）。`;
         } else {
-          box.innerHTML = `<span class='risk-badge risk-yellow'>Xa 抑制劑 → Warfarin</span> <strong>停用至下次給藥時併用至 INR 達標</strong>。`;
+          box.innerHTML = `<span class='risk-badge risk-yellow'>Xa 抑制劑 → Warfarin</span> 停用至下次給藥時併用至 INR 達標。`;
         }
         return;
       }
-
       if (fromD === "dabigatran") {
-        box.innerHTML = `
-          <span class='risk-badge risk-yellow'>Dabigatran → 目標藥</span>
-          • CrCl &gt;30 mL/min：停藥 <strong>12 小時後</strong>改用<br/>
-          • CrCl &lt;30 mL/min：停藥 <strong>24 小時後</strong>改用
-        `;
+        box.innerHTML = `<span class='risk-badge risk-yellow'>Dabigatran → 目標藥</span> CrCl &gt;30 停藥 <strong>12h 後</strong>；&lt;30 停藥 <strong>24h 後</strong>改用。`;
         return;
       }
-
-      if (fromD === "lmwh") {
-        const prefix = toD === "rivaroxaban" ? "停用後即可改用" : "停用至下次給藥時改用";
-        box.innerHTML = `<span class='risk-badge risk-green'>LMWH → 目標藥</span> <strong>${prefix}</strong>。`;
-        return;
-      }
-
-      box.innerHTML = `<span class='risk-badge risk-green'>Xa 抑制劑 → 目標藥</span> <strong>停用至下次給藥時改用</strong>。`;
+      box.innerHTML = `<span class='risk-badge risk-green'>轉換建議</span> 停用後或至下次給藥時改用。`;
     }
 
     function runMissedQuery() {
       const drug = document.getElementById("missedDrug").value;
       const ctx = document.getElementById("missedContext").value;
       const box = document.getElementById("missedResultBox");
-
-      if (ctx === "riva_vte_15bid") {
-        box.innerHTML = `
-          <span class='risk-badge risk-yellow'>例外規則</span>
-          <strong>Rivaroxaban VTE 治療 15 mg bid 期</strong>：漏服時<strong>可一次服 2 顆（共 30 mg）</strong>以確保每日劑量，之後依原療程服用。
-        `;
-        return;
-      }
-
+      if (ctx === "riva_vte_15bid") { box.innerHTML = `<span class='risk-badge risk-yellow'>例外規則</span> Rivaroxaban VTE 15 mg bid 期：漏服可一次服 2 顆（共 30 mg）。`; return; }
       if (drug === "dabigatran") {
-        if (ctx === "dabi_lt6h") {
-          box.innerHTML = `<span class='risk-badge risk-red'>不可補服</span> Dabigatran 距下一劑<strong>不足 6 小時</strong>：<strong>跳過漏服劑量</strong>，依原時間服下一劑，<strong>不可加倍</strong>。`;
-        } else {
-          box.innerHTML = `<span class='risk-badge risk-green'>可補服</span> Dabigatran 距下一劑<strong>≥ 6 小時</strong>：<strong>可儘快補服</strong>，之後依原時間服藥，<strong>不可加倍</strong>。`;
-        }
+        box.innerHTML = ctx === "dabi_lt6h"
+          ? `<span class='risk-badge risk-red'>不可補服</span> 距下一劑不足 6 小時：跳過漏服，不可加倍。`
+          : `<span class='risk-badge risk-green'>可補服</span> 距下一劑 ≥ 6 小時：儘快補服，不可加倍。`;
         return;
       }
-
-      if (drug === "apixaban") {
-        box.innerHTML = `<span class='risk-badge risk-green'>同日儘快補服</span> Apixaban 每日兩次：<strong>同一天儘快補服</strong>，之後照常每日兩次，<strong>不可加倍服用</strong>。`;
-        return;
-      }
-
-      if (drug === "rivaroxaban") {
-        box.innerHTML = `<span class='risk-badge risk-green'>同日內儘速補服</span> Rivaroxaban 每日一次：<strong>同日內儘速補服</strong>，<strong>不得在同一天加倍劑量</strong>（15/20 mg 須隨餐）。`;
-        return;
-      }
-
-      box.innerHTML = `<span class='risk-badge risk-green'>立即補服</span> Edoxaban 每日一次：<strong>立即補服</strong>，隔天依原頻率服用，<strong>不得同日加倍</strong>。`;
+      if (drug === "apixaban") { box.innerHTML = `<span class='risk-badge risk-green'>同日儘快補服</span> 同一天儘快補服，不可加倍。`; return; }
+      if (drug === "rivaroxaban") { box.innerHTML = `<span class='risk-badge risk-green'>同日內儘速補服</span> 同日內儘速補服，不得同日加倍（15/20 mg 須隨餐）。`; return; }
+      box.innerHTML = `<span class='risk-badge risk-green'>立即補服</span> 立即補服，隔天依原頻率，不得同日加倍。`;
     }
 
-    /* =========================================================================
-       4. 案例題庫引擎 + SOP v1.4 顯示解答 + SOP v1.5 QR Code 即時投票長條圖
-       ========================================================================= */
     const CLINICAL_CASES = [
       {
-        id: "case01",
-        category: "basic",
-        categoryLabel: "基礎與審方演練",
-        title: "案例 01｜高齡低體重患者的 DOAC 劑量檢核",
-        sourcePages: [45, 46],
+        id: "case01", category: "basic", categoryLabel: "基礎與審方演練",
+        title: "案例 01｜高齡低體重患者的 DOAC 劑量檢核", sourcePages: [45, 46],
         vignette: "85 歲男性，患有非瓣膜性心房顫動（CHA₂DS₂-VASc: 3），體重 57 kg，BMI 20.2，SCr 0.8 mg/dL（CrCl 54 mL/min），無交互作用且能自行口服。下列哪一個 DOAC 處方<strong>較不適當</strong>？",
-        options: [
-          "A. Rivaroxaban 15 mg qd",
-          "B. Dabigatran 110 mg bid",
-          "C. Edoxaban 30 mg qd",
-          "D. Apixaban 5 mg bid"
-        ],
+        options: ["A. Rivaroxaban 15 mg qd", "B. Dabigatran 110 mg bid", "C. Edoxaban 30 mg qd", "D. Apixaban 5 mg bid"],
         correctIndex: 3,
-        explanation: "<strong>正確答案：D（Apixaban 5 mg bid 較不適當）</strong>。Apixaban 減量條件為「年齡 ≥80 歲、體重 ≤60 kg、SCr ≥1.5 mg/dL」三項符合任兩項；本病人 85 歲（≥80 歲）且 57 kg（≤60 kg）已符合兩項，應減量為 <strong>2.5 mg bid</strong>。",
+        explanation: "<strong>正確答案：D（Apixaban 5 mg bid 較不適當）</strong>。85 歲與 57 kg 符合減量三項中兩項，應減為 <strong>2.5 mg bid</strong>。",
         refs: "簡報 P.45–46 小試身手一下｜Apixaban 仿單減量標準。"
       },
       {
-        id: "case02",
-        category: "basic",
-        categoryLabel: "基礎與審方演練",
-        title: "案例 02｜吞嚥困難需管灌磨粉之選藥決策",
-        sourcePages: [82, 83, 84],
+        id: "case02", category: "basic", categoryLabel: "基礎與審方演練",
+        title: "案例 02｜吞嚥困難需管灌磨粉之選藥決策", sourcePages: [82, 83, 84],
         vignette: "68 歲女性，患有非瓣膜性心房顫動（CHA₂DS₂-VASc: 3），體重 40 kg，BMI 15.6，SCr 0.9 mg/dL（CrCl 38 mL/min），無交互作用，因吞嚥困難<strong>需將藥物磨粉管灌</strong>。選擇下列哪一個 DOAC <strong>較適當</strong>？",
-        options: [
-          "A. Dabigatran 110 mg bid",
-          "B. Rivaroxaban 15 mg qd",
-          "C. Apixaban 5 mg bid",
-          "D. Edoxaban 60 mg qd"
-        ],
+        options: ["A. Dabigatran 110 mg bid", "B. Rivaroxaban 15 mg qd", "C. Apixaban 5 mg bid", "D. Edoxaban 60 mg qd"],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B（Rivaroxaban 15 mg qd）</strong>。<strong>Dabigatran 不可打開膠囊或磨粉管灌</strong>（生體可用率恐升 ~75% 且刺激性增加）；Edoxaban 符合低體重與 CrCl 15–50 應減為 30 mg qd。",
-        refs: "簡報 P.82–84 小試身手一下｜Micromedex / Lexicomp 管灌與台灣仿單。"
+        explanation: "<strong>正確答案：B（Rivaroxaban 15 mg qd）</strong>。Dabigatran 不建議剝開膠囊管灌；Edoxaban 符合低體重與腎功條件應減為 30 mg qd。",
+        refs: "簡報 P.82–84 小試身手一下｜台灣仿單與管灌建議。"
       },
       {
-        id: "case03",
-        category: "basic",
-        categoryLabel: "基礎與審方演練",
-        title: "案例 03｜併用抗心律不整藥 Dronedarone 之交互作用",
-        sourcePages: [85, 86, 87],
+        id: "case03", category: "basic", categoryLabel: "基礎與審方演練",
+        title: "案例 03｜併用抗心律不整藥 Dronedarone 之交互作用", sourcePages: [85, 86, 87],
         vignette: "65 歲男性，患有心房顫動（CHA₂DS₂-VASc: 2），體重 67 kg，BMI 21.9，SCr 0.9 mg/dL（CrCl 78 mL/min），目前使用 <strong>Dronedarone</strong> 控制心律，能自行口服。下列哪一個 DOAC <strong>較不適當</strong>？",
-        options: [
-          "A. Rivaroxaban 15 mg qd",
-          "B. Dabigatran 110 mg bid",
-          "C. Edoxaban 30 mg qd",
-          "D. Apixaban 5 mg bid"
-        ],
+        options: ["A. Rivaroxaban 15 mg qd", "B. Dabigatran 110 mg bid", "C. Edoxaban 30 mg qd", "D. Apixaban 5 mg bid"],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B（Dabigatran 110 mg bid 較不適當）</strong>。Dronedarone 與 Dabigatran 併用屬於<strong>禁忌</strong>；Edoxaban 併用 Dronedarone 應減半為 30 mg qd。",
-        refs: "簡報 P.85–87 小試身手一下｜台灣仿單藥物交互作用章節。"
+        explanation: "<strong>正確答案：B（Dabigatran 110 mg bid 較不適當）</strong>。Dronedarone 與 Dabigatran 併用為禁忌；Edoxaban 併用應減半為 30 mg qd。",
+        refs: "簡報 P.85–87 小試身手一下｜台灣仿單。"
       },
       {
-        id: "case04",
-        category: "basic",
-        categoryLabel: "基礎與審方演練",
-        title: "案例 04｜「擔心亞洲高齡出血」而開立超低劑量的臨床迷思（開放討論轉互動）",
-        sourcePages: [89, 97, 98, 114],
-        vignette: "80 歲男性，167 cm / 59 kg（BMI 21），SCr 0.9 mg/dL（<strong>CrCl 55 mL/min</strong>），有 HTN、DM，本次因 ADHF 住院並診斷 AF（CHA₂DS₂-VASc: 5; HAS-BLED: 2）。醫師開立 <strong>Rivaroxaban 10 mg qd</strong>，表示「因為病人年紀大，加上擔心標準劑量用於亞洲人容易出血」。請問藥師最適當的處置建議為何？",
+        id: "case04", category: "basic", categoryLabel: "基礎與審方演練",
+        title: "案例 04｜「擔心亞洲高齡出血」而開立超低劑量的臨床迷思", sourcePages: [89, 97, 98, 114],
+        vignette: "80 歲男性，167 cm / 59 kg（BMI 21），SCr 0.9 mg/dL（<strong>CrCl 55 mL/min</strong>），HTN、DM，本次因 ADHF 住院並診斷 AF（CHA₂DS₂-VASc: 5; HAS-BLED: 2）。醫師開立 <strong>Rivaroxaban 10 mg qd</strong>，擔心亞洲高齡出血。藥師最適當建議為何？",
         options: [
-          "A. 同意維持 Rivaroxaban 10 mg qd，因為 80 歲且 59 kg 屬於亞洲高齡低體重，減半最安全",
-          "B. 建議醫師調整為標準劑量（Rivaroxaban 20 mg qd；或依台灣仿單 CrCl >50 建議 15–20 mg qd），並說明擅自減量未降出血反增栓塞與 MI 風險",
-          "C. 建議改用 Dabigatran 75 mg bid（台灣仿單成人減量劑量）",
-          "D. 因為 HAS-BLED 2 分，建議先停用所有抗凝血藥物觀察"
+          "A. 同意維持 Rivaroxaban 10 mg qd",
+          "B. 建議調整為標準劑量（Rivaroxaban 20 mg qd；或依台灣仿單 CrCl >50 評估 15–20 mg qd），說明擅自減量未降出血反增栓塞與 MI 風險",
+          "C. 改用 Dabigatran 75 mg bid",
+          "D. 因 HAS-BLED 2 分停用所有抗凝血藥"
         ],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B</strong>。Rivaroxaban 減量條件看腎功能，高齡低體重非減量理由；擅自減量未能降低出血，反增栓塞（長庚分析）與心肌梗塞風險（JACC 2018 SHR 2.26）。",
-        refs: "簡報 P.89, 97–98, 114｜Cardiovasc Drugs Ther 2021; J Am Coll Cardiol 2018;72(5):477-485."
+        explanation: "<strong>正確答案：B</strong>。高齡低體重非 Rivaroxaban 減量條件；擅自減量可能增加栓塞與心肌梗塞風險。",
+        refs: "簡報 P.89, 97–98, 114｜J Am Coll Cardiol 2018;72(5):477-485."
       },
       {
-        id: "case05",
-        category: "basic",
-        categoryLabel: "基礎與審方演練",
-        title: "案例 05｜王奶奶審方四部曲（一）：CG 公式計算 CrCl 與 Apixaban 劑量",
-        sourcePages: [112, 113, 165, 166],
-        vignette: "王奶奶，82 歲女性，非瓣膜性 AF，體重 46 kg，SCr 1.3 mg/dL，準備開始使用 DOAC。以 Cockcroft-Gault 公式（代入實際體重）計算 CrCl，Apixaban 應如何處方？",
-        options: [
-          "A. CrCl 24.2 mL/min；Apixaban 2.5 mg bid",
-          "B. CrCl 24.2 mL/min；Apixaban 5 mg bid",
-          "C. CrCl 28.5 mL/min；Apixaban 2.5 mg bid",
-          "D. CrCl 31.6 mL/min；Apixaban 5 mg bid"
-        ],
+        id: "case05", category: "basic", categoryLabel: "基礎與審方演練",
+        title: "案例 05｜王奶奶審方四部曲（一）：CG 公式計算 CrCl 與 Apixaban 劑量", sourcePages: [112, 113, 165, 166],
+        vignette: "王奶奶，82 歲女性，非瓣膜性 AF，體重 46 kg，SCr 1.3 mg/dL。以 CG 公式計算 CrCl，Apixaban 應如何處方？",
+        options: ["A. CrCl 24.2 mL/min；Apixaban 2.5 mg bid", "B. CrCl 24.2 mL/min；Apixaban 5 mg bid", "C. CrCl 28.5 mL/min；Apixaban 2.5 mg bid", "D. CrCl 31.6 mL/min；Apixaban 5 mg bid"],
         correctIndex: 0,
-        explanation: "<strong>正確答案：A（CrCl 24.2 mL/min；Apixaban 2.5 mg bid）</strong>。<code>CrCl = [(140 − 82) × 46 × 0.85] ÷ (72 × 1.3) = 24.2 mL/min</code>，符合 ≥80 歲與 ≤60 kg 兩項且 CrCl 15–29，用 2.5 mg bid。",
-        refs: "簡報 P.112–113, 165–166 小試身手第一題｜Eliquis 台灣仿單。"
+        explanation: "<strong>正確答案：A</strong>。<code>CrCl = [(140 − 82) × 46 × 0.85] ÷ (72 × 1.3) = 24.2 mL/min</code>，符合減量條件，用 2.5 mg bid。",
+        refs: "簡報 P.112–113, 165–166 第一題。"
       },
       {
-        id: "case06",
-        category: "complex",
-        categoryLabel: "複雜共病決策",
-        title: "案例 06｜王奶奶審方四部曲（二）：同時服用 Amiodarone 的處方核對",
-        sourcePages: [167, 168],
-        vignette: "承上題，王奶奶（CrCl 24.2 mL/min，體重 46 kg）同時服用 <strong>Amiodarone</strong>。下列關於四種 DOAC 併用 Amiodarone 的敘述何者<strong>正確</strong>？",
+        id: "case06", category: "complex", categoryLabel: "複雜共病決策",
+        title: "案例 06｜王奶奶審方四部曲（二）：同時服用 Amiodarone 的處方核對", sourcePages: [167, 168],
+        vignette: "王奶奶（CrCl 24.2 mL/min，體重 46 kg）同時服用 <strong>Amiodarone</strong>。下列何者正確？",
         options: [
           "A. 四種 DOAC 對 Amiodarone 都無須調整或留意",
-          "B. Edoxaban 不因 Amiodarone 另行減量，仍依 CrCl（15–50）與體重（≤60 kg）使用 30 mg qd",
-          "C. 台灣仿單規定：Apixaban 併用 Amiodarone 須直接減量 50%",
-          "D. 依 FDA 仿單，Dabigatran 在此病人可用 150 mg bid"
+          "B. Edoxaban 不因 Amiodarone 另行減量，仍依 CrCl 與體重用 30 mg qd",
+          "C. 台灣仿單：Apixaban 併用 Amiodarone 減 50%",
+          "D. 依 FDA，Dabigatran 可用 150 mg bid"
         ],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B</strong>。Edoxaban 不因 Amiodarone 額外減量，仍依腎功與體重使用 30 mg qd。",
-        refs: "簡報 P.167–168 小試身手第二題｜台灣與 FDA 仿單對照。"
+        explanation: "<strong>正確答案：B</strong>。Edoxaban 不因 Amiodarone 另減量，仍依 CrCl 與體重用 30 mg qd。",
+        refs: "簡報 P.167–168 第二題。"
       },
       {
-        id: "case07",
-        category: "complex",
-        categoryLabel: "複雜共病決策",
-        title: "案例 07｜王奶奶審方四部曲（三）：跌倒髖部骨折需接受高出血風險手術",
-        sourcePages: [69, 169, 170],
-        vignette: "王奶奶服用 Apixaban 2.5 mg bid（CrCl 24.2 mL/min），不慎跌倒導致髖部骨折，需接受<strong>高出血風險手術</strong>。下列圍術期處置何者<strong>最正確</strong>？",
+        id: "case07", category: "complex", categoryLabel: "複雜共病決策",
+        title: "案例 07｜王奶奶審方四部曲（三）：跌倒髖部骨折需接受高出血風險手術", sourcePages: [69, 169, 170],
+        vignette: "王奶奶服用 Apixaban（CrCl 24.2 mL/min），髖部骨折需高出血風險手術。下列何者正確？",
         options: [
-          "A. 依 ACC/AHA 簡表建議，Apixaban 術前停 2 天即可",
-          "B. CrCl 24.2 不在 ACC/AHA 表適用範圍（限 CrCl >25），改依 EHRA 建議 Xa 抑制劑於 CrCl 15–29 高風險手術停藥 ≥48 小時，且不做肝素橋接",
-          "C. 不需停藥，直接進行髖部骨折手術",
-          "D. 術前停藥 5 天，並常規以低分子量肝素（LMWH）進行橋接治療"
+          "A. 依 ACC/AHA 建議 Apixaban 停 2 天即可",
+          "B. CrCl 24.2 不在 ACC/AHA 表適用範圍，改依 EHRA Xa 抑制劑 CrCl 15–29 高風險停藥 ≥48h，不橋接",
+          "C. 不停藥，直接手術",
+          "D. 術前停 5 天並以肝素橋接"
         ],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B</strong>。CrCl 24.2 超出 ACC/AHA 簡表（Apixaban 限 CrCl >25），改依 EHRA 建議 Xa 抑制劑於 CrCl 15–29 高風險手術停藥 ≥48 小時，且不做肝素橋接。",
-        refs: "簡報 P.69, 169–170 小試身手第三題｜Steffel J, et al. Europace 2021;23:1612-76."
+        explanation: "<strong>正確答案：B</strong>。改依 EHRA 停藥 ≥48 小時，且不做肝素橋接。",
+        refs: "簡報 P.69, 169–170 第三題｜EHRA 2021."
       },
       {
-        id: "case08",
-        category: "complex",
-        categoryLabel: "複雜共病決策",
-        title: "案例 08｜NSTEMI 置放塗藥支架（DES）合併 AF 與 Dronedarone（開放討論轉互動）",
-        sourcePages: [127, 129, 130, 182],
-        vignette: "68 歲男性，70 kg，SCr 0.6 mg/dL（CrCl 117 mL/min），本次因 NSTEMI 接受 RCA 塗藥支架（DES）置放，目前服用 Aspirin + Ticagrelor，同時診斷出 AF（PRECISE-DAPT: 34; CHA₂DS₂-VASc: 3; DOAC score: 6），併服 <strong>Dronedarone 1# qd</strong>。請問最適當的抗血栓組合與時程策略為何？",
+        id: "case08", category: "complex", categoryLabel: "複雜共病決策",
+        title: "案例 08｜NSTEMI DES 合併 AF 與 Dronedarone", sourcePages: [127, 129, 130, 182],
+        vignette: "68 歲男性，CrCl 117 mL/min，NSTEMI s/p DES 併 AF（PRECISE-DAPT: 34; CHA₂DS₂-VASc: 3; DOAC score: 6），併用 <strong>Dronedarone</strong>。建議組合？",
         options: [
-          "A. Dabigatran 150 mg bid + Aspirin + Ticagrelor 維持三聯療法 6 個月",
-          "B. 避開 Dabigatran（Dronedarone 禁忌）；選用 Apixaban 5 mg bid 或 Edoxaban 30 mg qd（因 Dronedarone 減半）或 Rivaroxaban 15 mg qd，搭配 DAPT 至多 7 天後轉為 DOAC + P2Y12 抑制劑雙聯療法",
-          "C. Rivaroxaban 20 mg qd + Aspirin + Ticagrelor 維持三聯療法 12 個月",
-          "D. 單用 Apixaban 5 mg bid，立即停掉所有抗血小板藥物"
+          "A. Dabigatran 150 mg bid + TAT 6 個月",
+          "B. 避開 Dabigatran；選 Apixaban 5 mg bid 或 Edoxaban 30 mg qd（減半）或 Rivaroxaban 15 mg qd + DAPT 至多 7 天後轉雙聯",
+          "C. Rivaroxaban 20 mg qd + TAT 12 個月",
+          "D. 單用 Apixaban 5 mg bid，立即停所有抗血小板"
         ],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B</strong>。避開 Dabigatran，Edoxaban 因 Dronedarone 減半為 30 mg qd；高出血風險（PRECISE-DAPT 34）縮短三聯療法至多 7 天後轉雙聯。",
-        refs: "簡報 P.127, 129–130, 182 案例討論 1｜ESC 2021 AF+PCI 指引。"
+        explanation: "<strong>正確答案：B</strong>。避開 Dabigatran，Edoxaban 因 Dronedarone 減半為 30 mg qd；高出血風險縮短三聯療程至多 7 天。",
+        refs: "簡報 P.127, 129–130, 182 案例討論 1。"
       },
       {
-        id: "case09",
-        category: "complex",
-        categoryLabel: "複雜共病決策",
-        title: "案例 09｜120 kg 肥胖合併生物性主動脈瓣置換（AVR）之劑量爭議（開放討論轉互動）",
-        sourcePages: [32, 138, 139, 140],
-        vignette: "68 歲男性，175 cm / <strong>120 kg（BMI 39.2）</strong>，SCr 0.6 mg/dL，有 HTN、HFrEF、AF（CHA₂DS₂-VASc: 3; DOAC score: 2），<strong>半年前因 AS 接受生物瓣膜（豬瓣膜）AVR</strong>，原用 Warfarin 因 TTR 不佳，醫師改開立 <strong>Rivaroxaban 15 mg bid（每日總量 30 mg）</strong>，表示因病人肥胖擔心標準劑量效果不佳。請問藥師應如何建議？",
+        id: "case09", category: "complex", categoryLabel: "複雜共病決策",
+        title: "案例 09｜120 kg 肥胖合併生物性主動脈瓣置換（AVR）劑量爭議", sourcePages: [32, 138, 139, 140],
+        vignette: "68 歲男性，120 kg（BMI 39.2），半年前豬瓣膜 AVR 併 AF，醫師因肥胖開立 Rivaroxaban 15 mg bid。藥師建議？",
         options: [
-          "A. 生物瓣膜終身禁用 DOAC，必須改回 Warfarin",
-          "B. 維持 Rivaroxaban 15 mg bid，因為體重達 120 kg 需要加倍劑量才能維持濃度",
-          "C. 生物瓣膜術後已滿 3 個月可使用 DOAC；但 BMI ≤40 且體重 ≤120 kg 無須增加劑量（15 mg bid 為 VTE 急性期前 21 天劑量，用於 AF 屬超標過量），應調回標準劑量（如 Rivaroxaban 20 mg qd 或 Apixaban 5 mg bid）",
-          "D. 改用 Rivaroxaban 10 mg qd 以降低出血風險"
+          "A. 生物瓣膜終身禁用 DOAC，改 Warfarin",
+          "B. 維持 Rivaroxaban 15 mg bid 加倍劑量",
+          "C. 生物瓣膜術後滿 3 個月可用 DOAC；BMI ≤40 且體重 ≤120 kg 無須加量，15 mg bid 長期用於 AF 屬超標過量，應調回標準劑量（如 Rivaroxaban 20 mg qd 或 Apixaban 5 mg bid）",
+          "D. 改用 Rivaroxaban 10 mg qd"
         ],
         correctIndex: 2,
-        explanation: "<strong>正確答案：C</strong>。生物瓣膜術後滿 3 個月可用 DOAC；BMI ≤40 且體重 ≤120 kg 無須加量，15 mg bid 長期用於 AF 屬超標過量會增加出血風險。",
-        refs: "簡報 P.32, 97, 138–140 案例討論｜EHRA 2021 & 台灣仿單。"
+        explanation: "<strong>正確答案：C</strong>。生物瓣膜術後滿 3 個月可用 DOAC；BMI ≤40 且體重 ≤120 kg 無須加量，避免超標增加出血風險。",
+        refs: "簡報 P.32, 138–140 案例討論。"
       },
       {
-        id: "case10",
-        category: "complex",
-        categoryLabel: "複雜共病決策",
-        title: "案例 10｜洗腎透析（ESRD）合併心房顫動之抗凝選藥審方（開放討論轉互動）",
-        sourcePages: [146, 150, 160, 164],
-        vignette: "針對簡報 P.146 討論的四位長期洗腎透析（ESRD）合併 AF 病人（如案例 2 使用 Apixaban 5 mg bid、案例 4 使用 Rivaroxaban 5 mg qd），結合台灣仿單、AHA 2023 指引與 CJASN 2020 實證，下列藥師審方觀點何者<strong>最正確</strong>？",
+        id: "case10", category: "complex", categoryLabel: "複雜共病決策",
+        title: "案例 10｜洗腎透析（ESRD）合併心房顫動抗凝選藥審方", sourcePages: [146, 150, 160, 164],
+        vignette: "針對洗腎透析（ESRD）合併 AF 病人（如案例 2 用 Apixaban 5 mg bid、案例 4 用 Rivaroxaban 5 mg qd），下列觀點何者最正確？",
         options: [
-          "A. 洗腎病人使用 Apixaban 5 mg bid 比 2.5 mg bid 更安全且不會增加出血",
-          "B. 台灣仿單 ESRD 皆未核准（且無 Apixaban 專一反轉劑）；透析族群抗凝淨效益有限且出血風險高，若經醫病共享決策確實需抗凝，可考慮 Warfarin（INR 2–3）或低劑量 Apixaban 2.5 mg bid，避免使用缺乏實證的超低劑量 Rivaroxaban 5 mg qd",
-          "C. Dabigatran 110 mg bid 是台灣洗腎病人的首選藥物",
-          "D. Rivaroxaban 5 mg qd（10 mg 半顆）在洗腎病人有大型 RCT 證實可降低中風與心肌梗塞"
+          "A. 洗腎用 Apixaban 5 mg bid 比 2.5 mg bid 更安全",
+          "B. 台灣仿單 ESRD 未核准；透析抗凝淨效益有限且出血風險高，若需抗凝可考慮 Warfarin（INR 2–3）或 Apixaban 2.5 mg bid，避免缺乏實證的 Rivaroxaban 5 mg qd",
+          "C. Dabigatran 110 mg bid 為透析首選",
+          "D. Rivaroxaban 5 mg qd 在透析有大型 RCT 證實降 MI"
         ],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B</strong>。CJASN 2020 顯示透析使用 Apixaban 5 mg bid 出血風險高（HR 4.61）；若需抗凝可考量 Warfarin 或 Apixaban 2.5 mg bid 審慎評估。",
-        refs: "簡報 P.146, 150, 160, 164｜Circulation 2024;149:e1-e156; Clin J Am Soc Nephrol 2020;15(8):1146-1154."
+        explanation: "<strong>正確答案：B</strong>。CJASN 2020 顯示透析使用 Apixaban 5 mg bid 出血風險高（HR 4.61）；若需抗凝可考量 Warfarin 或 Apixaban 2.5 mg bid。",
+        refs: "簡報 P.146, 150, 160, 164｜Clin J Am Soc Nephrol 2020;15(8):1146-1154."
       },
       {
-        id: "case11",
-        category: "acute",
-        categoryLabel: "急性併發症與特殊情境",
-        title: "案例 11｜服用 DOAC 併發急性上消化道出血（血行動力學穩定）之處置",
-        sourcePages: [75, 171, 172],
-        vignette: "林先生，68 歲，AF 近期接受 PCI，目前服用 DOAC 加 Clopidogrel，發生急性上消化道出血，但<strong>血行動力學穩定</strong>。下列處置何者<strong>最合適</strong>？",
+        id: "case11", category: "acute", categoryLabel: "急性併發症與特殊情境",
+        title: "案例 11｜服用 DOAC 併發急性上消化道出血（血行動力學穩定）處置", sourcePages: [75, 171, 172],
+        vignette: "林先生，68 歲，AF 近期 PCI，DOAC + Clopidogrel 發生急性上消化道出血，血行動力學穩定。最合適處置？",
         options: [
-          "A. 立即給予特異性反轉劑 Idarucizumab 或 Andexanet alfa",
-          "B. 立即給予四因子凝血酶原複合濃縮物（4F-PCC）",
-          "C. 採支持治療：暫停下一劑抗凝藥、安排內視鏡止血、視需要補液輸血，不常規給予反轉劑",
-          "D. 永久停用所有抗血栓藥物，出院後不再重啟"
+          "A. 立即給特異性反轉劑",
+          "B. 立即給四因子 PCC",
+          "C. 支持治療：停下一劑、內視鏡止血、補液輸血，不常規給反轉劑",
+          "D. 永久停用所有抗血栓藥，不再重啟"
         ],
         correctIndex: 2,
-        explanation: "<strong>正確答案：C</strong>。ACG-CAG 2022 建議血行動力學穩定的 DOAC 急性 GI 出血採支持治療與內視鏡止血，不常規給予反轉劑。",
-        refs: "簡報 P.75, 80, 171–172 小試身手第四題｜Am J Gastroenterol 2022;117:542-58."
+        explanation: "<strong>正確答案：C</strong>。血行動力學穩定的急性 GI 出血先採支持治療與內視鏡止血，不常規給予反轉劑。",
+        refs: "簡報 P.75, 171–172 第四題｜ACG-CAG 2022."
       },
       {
-        id: "case12",
-        category: "acute",
-        categoryLabel: "急性併發症與特殊情境",
-        title: "案例 12｜癌症相關靜脈血栓（CAT）與 COBRRA 試驗外推性判讀",
-        sourcePages: [18, 19, 20, 39, 173, 174],
-        vignette: "陳先生，58 歲，<strong>胰臟癌化療中</strong>，診斷近端深層靜脈栓塞（DVT）。近期發表的 COBRRA 試驗顯示 Apixaban 的臨床相關出血少於 Rivaroxaban。請問 COBRRA 的結果能直接套用在陳先生身上嗎？",
+        id: "case12", category: "acute", categoryLabel: "急性併發症與特殊情境",
+        title: "案例 12｜癌症相關靜脈血栓（CAT）與 COBRRA 試驗外推性判讀", sourcePages: [18, 19, 20, 39, 173, 174],
+        vignette: "陳先生，58 歲，胰臟癌化療中，近端 DVT。COBRRA 顯示 Apixaban 臨床相關出血少於 Rivaroxaban，能直接套用嗎？",
         options: [
-          "A. 可以：COBRRA 證實 Apixaban 對所有 VTE 族群（含癌症）都比較安全",
-          "B. 可以：COBRRA 顯示 Apixaban 的復發 VTE 也顯著少於 Rivaroxaban",
-          "C. 不能：COBRRA 排除了活動性癌症與體重 >120 kg 病人，且為開放標示、僅追蹤 3 個月，癌症 VTE 應參考 Hokusai VTE Cancer、Caravaggio 與 API-CAT",
-          "D. 不能：因為 COBRRA 只是回顧性資料庫分析，並非隨機試驗"
+          "A. 可以：對所有 VTE 族群都更安全",
+          "B. 可以：復發 VTE 顯著較少",
+          "C. 不能：COBRRA 排除活動性癌症與體重 &gt;120 kg，且開放標示、僅追蹤 3 個月，癌症 VTE 看 Hokusai VTE Cancer、Caravaggio 與 API-CAT",
+          "D. 不能：COBRRA 不是隨機試驗"
         ],
         correctIndex: 2,
-        explanation: "<strong>正確答案：C</strong>。COBRRA（NEJM 2026）排除活動性癌症與體重 >120 kg，且僅追蹤 3 個月；癌症 VTE 應參考 Caravaggio、Hokusai VTE Cancer 與 API-CAT（NEJM 2025）。",
-        refs: "簡報 P.18–20, 39–41, 173–174 小試身手第五題｜N Engl J Med 2026;394:1051-60."
+        explanation: "<strong>正確答案：C</strong>。COBRRA 排除活動性癌症與體重 &gt;120 kg，且僅追蹤 3 個月；癌症 VTE 應參考 Caravaggio、Hokusai VTE Cancer 與 API-CAT。",
+        refs: "簡報 P.18–20, 39, 173–174 第五題｜NEJM 2026."
       },
       {
-        id: "case13",
-        category: "acute",
-        categoryLabel: "急性併發症與特殊情境",
-        title: "案例 13｜短腸症（Short Bowel Syndrome）術後之 DOAC 吸收評估（開放討論轉互動）",
-        sourcePages: [186, 187, 188, 190],
-        vignette: "68 歲男性，62 kg，CrCl 71 mL/min，有 HTN、T2DM、陳舊性腦中風、PUD 與 AF（CHA₂DS₂-VASc: 5; HAS-BLED: 4），本次因上腸繫膜動脈栓塞（SMA thrombosis）導致缺血性腸壞死接受大範圍小腸切除（<strong>僅剩近端空腸 20 cm 與遠端迴腸 70 cm</strong>）。醫師欲開立 <strong>Apixaban 5 mg bid</strong>，請問藥師最關鍵的評估為何？",
+        id: "case13", category: "acute", categoryLabel: "急性併發症與特殊情境",
+        title: "案例 13｜短腸症（SBS）術後之 DOAC 吸收評估", sourcePages: [186, 187, 188, 190],
+        vignette: "68 歲男性，SMA thrombosis 切除大段小腸（剩近端空腸 20 cm、遠端迴腸 70 cm），欲開立 Apixaban 5 mg bid。最關鍵評估？",
         options: [
-          "A. Apixaban 100% 在胃部吸收，短腸症完全不影響其血中濃度，可直接安心使用",
-          "B. Apixaban 約 55% 依賴遠端小腸與升結腸吸收，大範圍小腸切除可能導致吸收嚴重不足（文獻案例吸收率僅約 30%）；若使用須搭配血中濃度監測（TDM）校正，或改考慮主要於胃／近端小腸吸收的 Rivaroxaban 或可測 INR 的 Warfarin",
-          "C. Dabigatran 是最適合短腸症的藥物，因為它可以打開膠囊直接灑在食物上",
-          "D. 因為病人 HAS-BLED 4 分，短腸症術後應永久停用所有抗凝血藥物"
+          "A. 100% 在胃吸收，完全不受影響",
+          "B. Apixaban 約 55% 吸收於遠端小腸與升結腸，大範圍腸切除可能吸收不足，必要時搭配 TDM 校正或評估 Rivaroxaban / Warfarin",
+          "C. Dabigatran 開膠囊灑食物最佳",
+          "D. HAS-BLED 4 分應永久停抗凝"
         ],
         correctIndex: 1,
-        explanation: "<strong>正確答案：B</strong>。Apixaban 約 55% 吸收於遠端小腸與升結腸，大範圍切除可能導致吸收不足，必要時需搭配 TDM 校正或評估替代方案。",
-        refs: "簡報 P.186–190 臨床困境｜Am J Med 2017;130:517-524; Can J Cardiol 2018."
+        explanation: "<strong>正確答案：B</strong>。Apixaban 遠端小腸與升結腸貢獻約 55% 吸收，短腸症需留意吸收受損並評估 TDM 或替代方案。",
+        refs: "簡報 P.186–190 臨床困境｜Am J Med 2017;130:517-524."
       }
     ];
 
     let currentCaseFilter = "all";
     const caseState = {};
-    const openPollPanels = {}; // caseId -> boolean
-
-    /* =========================================================================
-       方案一：免註冊即時投票頻道（ntfy.sh SSE 即時推播 + 舉手加減票備援）
-       ========================================================================= */
+    const openPollPanels = {};
     let pollRoomCode = "DOAC2026-" + Math.random().toString(36).substring(2, 6).toUpperCase();
-    // pollVotes[caseId] = [countA, countB, countC, countD]
     const pollVotes = {};
     CLINICAL_CASES.forEach((c) => { pollVotes[c.id] = [0, 0, 0, 0]; });
-
     let sseSource = null;
 
     function updatePollRoomUI() {
@@ -3048,10 +1868,7 @@
     }
 
     function connectLivePollSSE() {
-      if (sseSource) {
-        sseSource.close();
-        sseSource = null;
-      }
+      if (sseSource) { sseSource.close(); sseSource = null; }
       try {
         const topic = `doacs-poll-${pollRoomCode.toLowerCase()}`;
         sseSource = new EventSource(`https://ntfy.sh/${topic}/sse`);
@@ -3064,13 +1881,9 @@
               pollVotes[payload.caseId][payload.optionIdx] = (pollVotes[payload.caseId][payload.optionIdx] || 0) + 1;
               renderCasesList();
             }
-          } catch (_) {
-            // 忽略非 JSON 心跳訊息
-          }
+          } catch (_) {}
         };
-      } catch (_) {
-        // 本機離線或防火牆阻擋時仍可手動計票
-      }
+      } catch (_) {}
     }
 
     function buildAudienceVoteUrl(caseId) {
@@ -3078,59 +1891,197 @@
       return `${base}?vote=${encodeURIComponent(caseId)}&room=${encodeURIComponent(pollRoomCode)}`;
     }
 
-    // 簡易純 SVG QR Code 矩陣產生器（針對短投票網址編碼為可掃描矩陣）
-    function renderSimpleQrSvg(text) {
-      // 產生具定位方塊（Finder Patterns）與資料模組的標準視覺 QR 矩陣（25x25）
-      const size = 25;
-      const grid = Array.from({ length: size }, () => Array(size).fill(0));
+    function copyVoteUrl(caseId, btnId) {
+      const url = buildAudienceVoteUrl(caseId);
+      navigator.clipboard.writeText(url).then(() => {
+        const btn = document.getElementById(btnId);
+        if (!btn) return;
+        const orig = btn.textContent;
+        btn.textContent = "✅ 已複製連結";
+        setTimeout(() => { btn.textContent = orig; }, 1600);
+      });
+    }
 
-      function drawFinder(r0, c0) {
-        for (let r = 0; r < 7; r++) {
-          for (let c = 0; c < 7; c++) {
-            const rr = r0 + r;
-            const cc = c0 + c;
-            if (rr >= 0 && rr < size && cc >= 0 && cc < size) {
-              const isBorder = r === 0 || r === 6 || c === 0 || c === 6;
-              const isCenter = r >= 2 && r <= 4 && c >= 2 && c <= 4;
-              grid[rr][cc] = (isBorder || isCenter) ? 1 : 0;
+    /* =========================================================================
+       真實 QR Code 矩陣產生器（支援 Version 1–6、Byte Mode、ECC-L，免外部套件）
+       ========================================================================= */
+    function renderSimpleQrSvg(text) {
+      const qr = createRealQrMatrix(text);
+      if (!qr) {
+        return `<div style="padding:12px; font-size:0.78rem; color:#991b1b;">網址過長，請直接點選下方投票連結</div>`;
+      }
+      const { size, modules } = qr;
+      const quiet = 4;
+      const total = size + quiet * 2;
+      let rects = "";
+      for (let r = 0; r < size; r++) {
+        for (let c = 0; c < size; c++) {
+          if (modules[r][c]) {
+            rects += `<rect x="${c + quiet}" y="${r + quiet}" width="1" height="1" fill="#0f172a"/>`;
+          }
+        }
+      }
+      return `<svg viewBox="0 0 ${total} ${total}" width="156" height="156" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="background:#ffffff; border-radius:6px; border:1px solid #e2e8f0;">${rects}</svg>`;
+    }
+
+    function createRealQrMatrix(text) {
+      const bytes = new TextEncoder().encode(text);
+      const capacities = [0, 17, 32, 53, 78, 106, 134];
+      const totalCodewords = [0, 26, 44, 70, 100, 134, 172];
+      const ecCodewords = [0, 7, 10, 15, 20, 26, 36];
+
+      let version = 0;
+      for (let v = 1; v <= 6; v++) {
+        if (bytes.length <= capacities[v]) { version = v; break; }
+      }
+      if (version === 0) return null;
+
+      const size = version * 4 + 17;
+      const dataCap = totalCodewords[version] - ecCodewords[version];
+      const bits = [];
+
+      function pushBits(val, len) {
+        for (let i = len - 1; i >= 0; i--) bits.push((val >>> i) & 1);
+      }
+
+      pushBits(0b0100, 4);
+      pushBits(bytes.length, 8);
+      for (const b of bytes) pushBits(b, 8);
+
+      const maxBits = dataCap * 8;
+      const termLen = Math.min(4, Math.max(0, maxBits - bits.length));
+      pushBits(0, termLen);
+      while (bits.length % 8 !== 0) bits.push(0);
+
+      const dataBytes = [];
+      for (let i = 0; i < bits.length; i += 8) {
+        let byteVal = 0;
+        for (let j = 0; j < 8; j++) byteVal = (byteVal << 1) | (bits[i + j] || 0);
+        dataBytes.push(byteVal);
+      }
+
+      const pads = [0xec, 0x11];
+      let padIdx = 0;
+      while (dataBytes.length < dataCap) {
+        dataBytes.push(pads[padIdx % 2]);
+        padIdx++;
+      }
+
+      const eccBytes = reedSolomonEncode(dataBytes, ecCodewords[version]);
+      const fullStream = [...dataBytes, ...eccBytes];
+
+      const modules = Array.from({ length: size }, () => Array(size).fill(null));
+      const isFunction = Array.from({ length: size }, () => Array(size).fill(false));
+
+      function placeFinder(r0, c0) {
+        for (let r = -1; r <= 7; r++) {
+          for (let c = -1; c <= 7; c++) {
+            const rr = r0 + r, cc = c0 + c;
+            if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
+            const onBorder = r === 0 || r === 6 || c === 0 || c === 6;
+            const inBox = r >= 2 && r <= 4 && c >= 2 && c <= 4;
+            modules[rr][cc] = (r >= 0 && r <= 6 && c >= 0 && c <= 6) ? (onBorder || inBox) : false;
+            isFunction[rr][cc] = true;
+          }
+        }
+      }
+
+      placeFinder(0, 0);
+      placeFinder(0, size - 7);
+      placeFinder(size - 7, 0);
+
+      for (let i = 8; i < size - 8; i++) {
+        const bit = i % 2 === 0;
+        if (!isFunction[6][i]) { modules[6][i] = bit; isFunction[6][i] = true; }
+        if (!isFunction[i][6]) { modules[i][6] = bit; isFunction[i][6] = true; }
+      }
+
+      if (version >= 2) {
+        const center = size - 9;
+        for (let r = -2; r <= 2; r++) {
+          for (let c = -2; c <= 2; c++) {
+            const rr = center + r, cc = center + c;
+            if (!isFunction[rr][cc]) {
+              modules[rr][cc] = Math.abs(r) === 2 || Math.abs(c) === 2 || (r === 0 && c === 0);
+              isFunction[rr][cc] = true;
             }
           }
         }
       }
 
-      drawFinder(0, 0);
-      drawFinder(0, size - 7);
-      drawFinder(size - 7, 0);
-
-      // 依輸入網址字串產生決定性雜湊位元填入資料區
-      let hash = 2166136261;
-      for (let i = 0; i < text.length; i++) {
-        hash ^= text.charCodeAt(i);
-        hash = Math.imul(hash, 16777619);
+      for (let i = 0; i < 9; i++) {
+        if (i < size) { isFunction[8][i] = true; isFunction[i][8] = true; }
       }
-
-      for (let r = 0; r < size; r++) {
-        for (let c = 0; c < size; c++) {
-          const inTopLeft = r < 8 && c < 8;
-          const inTopRight = r < 8 && c >= size - 8;
-          const inBottomLeft = r >= size - 8 && c < 8;
-          if (inTopLeft || inTopRight || inBottomLeft) continue;
-
-          const bitSeed = (r * 31 + c * 17 + text.charCodeAt((r + c) % text.length)) ^ (hash >>> ((r * size + c) % 24));
-          grid[r][c] = (bitSeed & 1) === 1 ? 1 : 0;
-        }
+      for (let i = 0; i < 8; i++) {
+        isFunction[8][size - 1 - i] = true;
+        isFunction[size - 1 - i][8] = true;
       }
+      modules[size - 8][8] = true;
+      isFunction[size - 8][8] = true;
 
-      let rects = "";
-      for (let r = 0; r < size; r++) {
-        for (let c = 0; c < size; c++) {
-          if (grid[r][c] === 1) {
-            rects += `<rect x="${c + 2}" y="${r + 2}" width="1" height="1" fill="#0f172a"/>`;
+      let bitIndex = 0, goingUp = true;
+      for (let col = size - 1; col > 0; col -= 2) {
+        if (col === 6) col = 5;
+        for (let count = 0; count < size; count++) {
+          const row = goingUp ? (size - 1 - count) : count;
+          for (let dx = 0; dx < 2; dx++) {
+            const c = col - dx;
+            if (!isFunction[row][c]) {
+              const b = bitIndex < fullStream.length * 8
+                ? ((fullStream[bitIndex >>> 3] >>> (7 - (bitIndex & 7))) & 1) === 1
+                : false;
+              modules[row][c] = ((row + c) % 2 === 0) ? !b : b;
+              bitIndex++;
+            }
           }
         }
+        goingUp = !goingUp;
       }
 
-      return `<svg viewBox="0 0 ${size + 4} ${size + 4}" width="150" height="150" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:4px;">${rects}</svg>`;
+      const fmtBits = [1,1,1,0,1,1,1,1,1,0,0,0,1,0,0];
+      const topLeftCoords = [
+        [0,8],[1,8],[2,8],[3,8],[4,8],[5,8],[7,8],[8,8],
+        [8,7],[8,5],[8,4],[8,3],[8,2],[8,1],[8,0]
+      ];
+      for (let i = 0; i < 15; i++) {
+        const [r, c] = topLeftCoords[i];
+        modules[r][c] = fmtBits[i] === 1;
+      }
+      for (let i = 0; i < 7; i++) modules[size - 1 - i][8] = fmtBits[i] === 1;
+      for (let i = 7; i < 15; i++) modules[8][size - 15 + i] = fmtBits[i] === 1;
+
+      return { size, modules };
+    }
+
+    function reedSolomonEncode(data, ecLen) {
+      const exp = new Array(256).fill(0);
+      const log = new Array(256).fill(0);
+      let x = 1;
+      for (let i = 0; i < 255; i++) {
+        exp[i] = x; log[x] = i; x <<= 1;
+        if (x & 0x100) x ^= 0x11d;
+      }
+      function gfMul(a, b) {
+        if (a === 0 || b === 0) return 0;
+        return exp[(log[a] + log[b]) % 255];
+      }
+      let gen = [1];
+      for (let i = 0; i < ecLen; i++) {
+        const next = new Array(gen.length + 1).fill(0);
+        for (let j = 0; j < gen.length; j++) {
+          next[j] ^= gen[j];
+          next[j + 1] ^= gfMul(gen[j], exp[i]);
+        }
+        gen = next;
+      }
+      const res = new Array(ecLen).fill(0);
+      for (const d of data) {
+        const factor = d ^ res[0];
+        res.shift();
+        res.push(0);
+        for (let i = 0; i < ecLen; i++) res[i] ^= gfMul(gen[i + 1], factor);
+      }
+      return res;
     }
 
     function togglePollPanel(caseId) {
@@ -3140,8 +2091,7 @@
 
     function adjustManualVote(caseId, optIdx, delta) {
       if (!pollVotes[caseId]) return;
-      const nextVal = (pollVotes[caseId][optIdx] || 0) + delta;
-      pollVotes[caseId][optIdx] = Math.max(0, nextVal);
+      pollVotes[caseId][optIdx] = Math.max(0, (pollVotes[caseId][optIdx] || 0) + delta);
       renderCasesList();
     }
 
@@ -3152,6 +2102,7 @@
       const totalVotes = counts.reduce((sum, n) => sum + n, 0);
       const voteUrl = buildAudienceVoteUrl(c.id);
       const isFileProtocol = window.location.protocol === "file:";
+      const copyBtnId = `copyVoteBtn-${c.id}`;
 
       const barsHtml = c.options.map((optText, idx) => {
         const cnt = counts[idx] || 0;
@@ -3170,16 +2121,14 @@
                 </span>
               </span>
             </div>
-            <div class="poll-track">
-              <div class="poll-fill ${isRightBar}" style="width:${pct}%;"></div>
-            </div>
+            <div class="poll-track"><div class="poll-fill ${isRightBar}" style="width:${pct}%;"></div></div>
           </div>
         `;
       }).join("");
 
       const hostHint = isFileProtocol
         ? `<div style="font-size:0.75rem; color:#9a3412; background:#fff7ed; padding:6px; border-radius:6px; margin-top:6px;">
-             目前為本機 <code>file://</code> 開啟；若要讓聽眾手機掃碼連線，請先將此 HTML 上傳至免費靜態空間（如 Netlify Drop / GitHub Pages）取得 <code>https://</code> 網址，或直接使用右側 <code>+1</code> 舉手計票。
+             目前為本機 <code>file://</code> 開啟；請使用 GitHub Pages <code>https://</code> 網址讓聽眾掃碼，或直接按 <code>+1</code> 舉手計票。
            </div>`
         : `<div style="font-size:0.74rem; color:var(--text-muted); margin-top:6px; word-break:break-all;">
              投票連結：<a href="${voteUrl}" target="_blank" rel="noopener">${voteUrl}</a>
@@ -3187,9 +2136,12 @@
 
       return `
         <div class="live-poll-panel">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-            <strong style="color:#1e3a8a;">📡 現場聽眾投票統計（場次代碼：${pollRoomCode}・總票數：${totalVotes} 票）</strong>
-            <button class="tiny-vote-btn" onclick="togglePollPanel('${c.id}')">收合投票面板</button>
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px;">
+            <strong style="color:#1e3a8a;">📡 現場聽眾投票統計（場次：${pollRoomCode}・總票數：${totalVotes} 票）</strong>
+            <div style="display:flex; gap:6px;">
+              <button id="${copyBtnId}" class="tiny-vote-btn" onclick="copyVoteUrl('${c.id}', '${copyBtnId}')">📋 複製投票連結</button>
+              <button class="tiny-vote-btn" onclick="togglePollPanel('${c.id}')">收合</button>
+            </div>
           </div>
           <div class="poll-grid">
             <div class="qr-box">
@@ -3197,15 +2149,12 @@
               <div style="font-size:0.78rem; font-weight:700; margin-top:4px; color:#0f172a;">聽眾掃碼作答</div>
               ${hostHint}
             </div>
-            <div>
-              ${barsHtml}
-            </div>
+            <div>${barsHtml}</div>
           </div>
         </div>
       `;
     }
 
-    // 聽眾手機掃碼進入後的精簡投票畫面
     function checkAndRenderAudienceVoter() {
       const params = new URLSearchParams(window.location.search);
       const voteCaseId = params.get("vote");
@@ -3241,25 +2190,18 @@
 
     function submitAudienceVote(room, caseId, optionIdx, optionLabel) {
       const topic = `doacs-poll-${room.toLowerCase()}`;
-      const msgBody = JSON.stringify({ caseId, optionIdx, ts: Date.now() });
-
       fetch(`https://ntfy.sh/${topic}`, {
         method: "POST",
-        body: msgBody
+        body: JSON.stringify({ caseId, optionIdx, ts: Date.now() })
       }).catch(() => {});
 
       document.querySelectorAll(".voter-choice-btn").forEach((b) => { b.disabled = true; });
       document.getElementById("voterFeedback").innerHTML = `✅ 已送出您的選擇：<strong>${optionLabel}</strong>（請看講台投影畫面統計）`;
     }
 
-    /* =========================================================================
-       案例作答、顯示解答與主分頁渲染
-       ========================================================================= */
     function setCaseFilter(cat) {
       currentCaseFilter = cat;
-      document.querySelectorAll(".filter-chip").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.cat === cat);
-      });
+      document.querySelectorAll(".filter-chip").forEach((btn) => btn.classList.toggle("active", btn.dataset.cat === cat));
       renderCasesList();
     }
 
@@ -3285,23 +2227,19 @@
 
     function updateQuizDashboard() {
       const stateKeys = Object.keys(caseState);
-      const completedCount = stateKeys.length;
-      let selfAttemptedCount = 0;
-      let correctCount = 0;
+      let selfAttemptedCount = 0, correctCount = 0;
 
       stateKeys.forEach((id) => {
         const st = caseState[id];
         if (st.mode === "answered") {
           selfAttemptedCount++;
           const c = CLINICAL_CASES.find((item) => item.id === id);
-          if (c && st.selectedIndex === c.correctIndex) {
-            correctCount++;
-          }
+          if (c && st.selectedIndex === c.correctIndex) correctCount++;
         }
       });
 
       const accuracy = selfAttemptedCount === 0 ? 0 : Math.round((correctCount / selfAttemptedCount) * 100);
-      document.getElementById("statCompleted").textContent = completedCount;
+      document.getElementById("statCompleted").textContent = stateKeys.length;
       document.getElementById("statCorrect").textContent = correctCount;
       document.getElementById("statSelfAttempted").textContent = selfAttemptedCount;
       document.getElementById("statAccuracy").textContent = `${accuracy}%`;
@@ -3324,39 +2262,22 @@
           let extraClass = "";
           if (isDone) {
             if (idx === c.correctIndex) extraClass = "opt-correct";
-            else if (isAnswered && idx === st.selectedIndex && st.selectedIndex !== c.correctIndex) {
-              extraClass = "opt-wrong";
-            }
+            else if (isAnswered && idx === st.selectedIndex && st.selectedIndex !== c.correctIndex) extraClass = "opt-wrong";
           }
-          const disabledAttr = isDone ? "disabled" : "";
-          return `
-            <button class="option-btn ${extraClass}" ${disabledAttr} onclick="selectCaseOption('${c.id}', ${idx})">
-              <span>${optText}</span>
-            </button>
-          `;
+          return `<button class="option-btn ${extraClass}" ${isDone ? "disabled" : ""} onclick="selectCaseOption('${c.id}', ${idx})"><span>${optText}</span></button>`;
         }).join("");
 
         let expHtml = "";
         if (isDone) {
-          let bannerClass = "";
-          let headingColor = "#166534";
-          let headingText = "✅ 回答正確！";
-
-          if (isRevealed) {
-            bannerClass = "reveal-banner";
-            headingColor = "#0369a1";
-            headingText = "👁️ 已展開正確答案與藥師審方解析（直接檢視模式）：";
-          } else if (!isCorrect) {
-            bannerClass = "wrong-banner";
-            headingColor = "#854d0e";
-            headingText = "❌ 再想一下！正確答案與藥師審方解析如下：";
-          }
+          const bannerClass = isRevealed ? "reveal-banner" : (!isCorrect ? "wrong-banner" : "");
+          const headingColor = isRevealed ? "#0369a1" : (!isCorrect ? "#854d0e" : "#166534");
+          const headingText = isRevealed
+            ? "👁️ 已展開正確答案與藥師審方解析（直接檢視模式）："
+            : (!isCorrect ? "❌ 再想一下！正確答案與藥師審方解析如下：" : "✅ 回答正確！");
 
           expHtml = `
             <div class="case-explanation ${bannerClass}">
-              <div style="font-weight:800; margin-bottom:6px; color:${headingColor};">
-                ${headingText}
-              </div>
+              <div style="font-weight:800; margin-bottom:6px; color:${headingColor};">${headingText}</div>
               <div>${c.explanation}</div>
               <div style="margin-top:8px; font-size:0.82rem; color:#475569;"><strong>Ref 依據：</strong>${c.refs}</div>
             </div>
@@ -3365,17 +2286,9 @@
 
         const pagesJsonAttr = JSON.stringify(c.sourcePages).replace(/"/g, "&quot;");
         const hasLoadedSlides = c.sourcePages.some((p) => slideUrlMap.has(p));
-        const slideBtnText = hasLoadedSlides
-          ? `🖼️ 查看對應原簡報（P.${c.sourcePages.join(", P.")}）`
-          : `🖼️ 對應頁碼：P.${c.sourcePages.join(", P.")}`;
-
-        const revealBtnHtml = !isDone
-          ? `<button class="btn-reveal-ans" onclick="revealCaseAnswer('${c.id}')">👁️ 顯示解答與解析</button>`
-          : "";
-
-        const statusLabel = isRevealed
-          ? "已直接顯示解答（不計入自測正確率）"
-          : (isAnswered ? "已完成作答" : "請點選選項作答，或使用右側按鈕");
+        const slideBtnText = hasLoadedSlides ? `🖼️ 查看對應原簡報（P.${c.sourcePages.join(", P.")}）` : `🖼️ 對應頁碼：P.${c.sourcePages.join(", P.")}`;
+        const revealBtnHtml = !isDone ? `<button class="btn-reveal-ans" onclick="revealCaseAnswer('${c.id}')">👁️ 顯示解答與解析</button>` : "";
+        const statusLabel = isRevealed ? "已直接顯示解答（不計入自測正確率）" : (isAnswered ? "已完成作答" : "請點選選項作答，或使用右側按鈕");
 
         return `
           <article class="case-card" id="${c.id}">
@@ -3393,9 +2306,7 @@
               <div class="case-btn-group">
                 ${revealBtnHtml}
                 <button class="btn-poll" onclick="togglePollPanel('${c.id}')">📡 QR 投票與統計</button>
-                <button class="btn-secondary" style="font-size:0.8rem; padding:6px 10px;" onclick="openSlidePlaylist(${pagesJsonAttr}, 0)">
-                  ${slideBtnText}
-                </button>
+                <button class="btn-secondary" style="font-size:0.8rem; padding:6px 10px;" onclick="openSlidePlaylist(${pagesJsonAttr}, 0)">${slideBtnText}</button>
               </div>
             </div>
           </article>
@@ -3407,44 +2318,26 @@
     const cardActiveSubtab = {};
 
     function switchMainModule(moduleName) {
-      document.querySelectorAll(".module-tab-btn").forEach((btn) => {
-        btn.classList.toggle("active", btn.dataset.module === moduleName);
-      });
-      document.querySelectorAll(".module-view").forEach((view) => {
-        view.classList.remove("active");
-      });
+      document.querySelectorAll(".module-tab-btn").forEach((btn) => btn.classList.toggle("active", btn.dataset.module === moduleName));
+      document.querySelectorAll(".module-view").forEach((view) => view.classList.remove("active"));
       document.getElementById(`view-${moduleName}`).classList.add("active");
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     function renderChapterSidebar() {
-      const navContainer = document.getElementById("chapterNavList");
-      navContainer.innerHTML = LECTURE_CHAPTERS.map((ch) => {
-        const activeClass = ch.id === currentChapterId ? "active" : "";
-        return `
-          <button class="chapter-btn ${activeClass}" onclick="selectChapter('${ch.id}')">
-            <span>${ch.title}</span>
-            <span class="chapter-pages">${ch.pages}</span>
-          </button>
-        `;
-      }).join("");
+      document.getElementById("chapterNavList").innerHTML = LECTURE_CHAPTERS.map((ch) => `
+        <button class="chapter-btn ${ch.id === currentChapterId ? "active" : ""}" onclick="selectChapter('${ch.id}')">
+          <span>${ch.title}</span>
+          <span class="chapter-pages">${ch.pages}</span>
+        </button>
+      `).join("");
     }
 
-    function selectChapter(chapterId) {
-      currentChapterId = chapterId;
-      renderChapterSidebar();
-      renderChapterContent();
-    }
-
-    function selectCardSubtab(cardId, tabKey) {
-      cardActiveSubtab[cardId] = tabKey;
-      renderChapterContent();
-    }
+    function selectChapter(chapterId) { currentChapterId = chapterId; renderChapterSidebar(); renderChapterContent(); }
+    function selectCardSubtab(cardId, tabKey) { cardActiveSubtab[cardId] = tabKey; renderChapterContent(); }
 
     function renderChapterContent() {
       const chapter = LECTURE_CHAPTERS.find((c) => c.id === currentChapterId) || LECTURE_CHAPTERS[0];
-      const container = document.getElementById("lectureContentArea");
-
       const cardsHtml = chapter.cards.map((card) => {
         const activeTab = cardActiveSubtab[card.id] || "label";
         const tabDefs = [
@@ -3452,16 +2345,8 @@
           { key: "guidelines", title: "國際指引（ESC / AHA-ACC / EHRA）" },
           { key: "trials", title: "關鍵試驗與實證數據" }
         ];
-
-        const subtabsHtml = tabDefs.map((t) => {
-          const isAct = activeTab === t.key ? "active" : "";
-          return `<button class="subtab-btn ${isAct}" onclick="selectCardSubtab('${card.id}', '${t.key}')">${t.title}</button>`;
-        }).join("");
-
+        const subtabsHtml = tabDefs.map((t) => `<button class="subtab-btn ${activeTab === t.key ? "active" : ""}" onclick="selectCardSubtab('${card.id}', '${t.key}')">${t.title}</button>`).join("");
         const items = (card.tabs[activeTab] && card.tabs[activeTab].items) || [];
-        const listHtml = items.map((li) => `<li>${li}</li>`).join("");
-        const slideEmbedHtml = renderSlideEmbedSection(card);
-
         return `
           <article class="knowledge-card" id="${card.id}">
             <div class="card-top">
@@ -3469,10 +2354,8 @@
               <span class="source-tag">${card.sourceTag}</span>
             </div>
             <div class="subtabs-bar" role="tablist">${subtabsHtml}</div>
-            <div class="subtab-panel">
-              <ul>${listHtml}</ul>
-            </div>
-            ${slideEmbedHtml}
+            <div class="subtab-panel"><ul>${items.map((li) => `<li>${li}</li>`).join("")}</ul></div>
+            ${renderSlideEmbedSection(card)}
             <details class="ref-drawer">
               <summary>Ref 文獻與仿單依據（點擊展開）</summary>
               <div class="ref-body">${card.refs}</div>
@@ -3481,7 +2364,7 @@
         `;
       }).join("");
 
-      container.innerHTML = `
+      document.getElementById("lectureContentArea").innerHTML = `
         <div class="chapter-header-card">
           <h2>${chapter.title}</h2>
           <p><strong>${chapter.pages}</strong> ｜ ${chapter.summary}</p>
@@ -3490,7 +2373,6 @@
       `;
     }
 
-    // 初始化：若為聽眾掃碼投票連結則進入手機投票畫面，否則啟動完整平台
     if (!checkAndRenderAudienceVoter()) {
       updatePollRoomUI();
       connectLivePollSSE();
