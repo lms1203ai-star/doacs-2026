@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>2026 DOACs 臨床應用與審方互動平台 | 抗凝血門診藥事照護（SOP v1.6）</title>
+  <title>2026 DOACs 臨床應用與審方互動平台 | 抗凝血門診藥事照護（SOP v1.7）</title>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js"></script>
   <style>
     :root {
       --primary: #0f766e;
@@ -400,9 +401,9 @@
       <div class="header-inner">
         <div class="header-title">
           <h1>2026 DOACs 臨床應用與審方互動平台</h1>
-          <p>抗凝血門診藥事照護系列課程 ｜ 改編自林明燊藥師 199 頁簡報（SOP v1.6）</p>
+          <p>抗凝血門診藥事照護系列課程 ｜ 改編自林明燊藥師 199 頁簡報（SOP v1.7）</p>
         </div>
-        <div class="header-badge">SOP v1.6：真實 QR 編碼＋複製連結</div>
+        <div class="header-badge">SOP v1.7：標準 QR 函式庫版</div>
       </div>
     </header>
 
@@ -1903,185 +1904,16 @@
     }
 
     /* =========================================================================
-       真實 QR Code 矩陣產生器（支援 Version 1–6、Byte Mode、ECC-L，免外部套件）
+       標準 QR Code 產生器（呼叫 qrcode-generator@1.4.4 函式庫）
        ========================================================================= */
     function renderSimpleQrSvg(text) {
-      const qr = createRealQrMatrix(text);
-      if (!qr) {
-        return `<div style="padding:12px; font-size:0.78rem; color:#991b1b;">網址過長，請直接點選下方投票連結</div>`;
+      if (typeof qrcode === "undefined") {
+        return `<div style="padding:10px; font-size:0.78rem; color:#991b1b;">QR 套件載入中，請點選下方投票連結</div>`;
       }
-      const { size, modules } = qr;
-      const quiet = 4;
-      const total = size + quiet * 2;
-      let rects = "";
-      for (let r = 0; r < size; r++) {
-        for (let c = 0; c < size; c++) {
-          if (modules[r][c]) {
-            rects += `<rect x="${c + quiet}" y="${r + quiet}" width="1" height="1" fill="#0f172a"/>`;
-          }
-        }
-      }
-      return `<svg viewBox="0 0 ${total} ${total}" width="156" height="156" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" style="background:#ffffff; border-radius:6px; border:1px solid #e2e8f0;">${rects}</svg>`;
-    }
-
-    function createRealQrMatrix(text) {
-      const bytes = new TextEncoder().encode(text);
-      const capacities = [0, 17, 32, 53, 78, 106, 134];
-      const totalCodewords = [0, 26, 44, 70, 100, 134, 172];
-      const ecCodewords = [0, 7, 10, 15, 20, 26, 36];
-
-      let version = 0;
-      for (let v = 1; v <= 6; v++) {
-        if (bytes.length <= capacities[v]) { version = v; break; }
-      }
-      if (version === 0) return null;
-
-      const size = version * 4 + 17;
-      const dataCap = totalCodewords[version] - ecCodewords[version];
-      const bits = [];
-
-      function pushBits(val, len) {
-        for (let i = len - 1; i >= 0; i--) bits.push((val >>> i) & 1);
-      }
-
-      pushBits(0b0100, 4);
-      pushBits(bytes.length, 8);
-      for (const b of bytes) pushBits(b, 8);
-
-      const maxBits = dataCap * 8;
-      const termLen = Math.min(4, Math.max(0, maxBits - bits.length));
-      pushBits(0, termLen);
-      while (bits.length % 8 !== 0) bits.push(0);
-
-      const dataBytes = [];
-      for (let i = 0; i < bits.length; i += 8) {
-        let byteVal = 0;
-        for (let j = 0; j < 8; j++) byteVal = (byteVal << 1) | (bits[i + j] || 0);
-        dataBytes.push(byteVal);
-      }
-
-      const pads = [0xec, 0x11];
-      let padIdx = 0;
-      while (dataBytes.length < dataCap) {
-        dataBytes.push(pads[padIdx % 2]);
-        padIdx++;
-      }
-
-      const eccBytes = reedSolomonEncode(dataBytes, ecCodewords[version]);
-      const fullStream = [...dataBytes, ...eccBytes];
-
-      const modules = Array.from({ length: size }, () => Array(size).fill(null));
-      const isFunction = Array.from({ length: size }, () => Array(size).fill(false));
-
-      function placeFinder(r0, c0) {
-        for (let r = -1; r <= 7; r++) {
-          for (let c = -1; c <= 7; c++) {
-            const rr = r0 + r, cc = c0 + c;
-            if (rr < 0 || rr >= size || cc < 0 || cc >= size) continue;
-            const onBorder = r === 0 || r === 6 || c === 0 || c === 6;
-            const inBox = r >= 2 && r <= 4 && c >= 2 && c <= 4;
-            modules[rr][cc] = (r >= 0 && r <= 6 && c >= 0 && c <= 6) ? (onBorder || inBox) : false;
-            isFunction[rr][cc] = true;
-          }
-        }
-      }
-
-      placeFinder(0, 0);
-      placeFinder(0, size - 7);
-      placeFinder(size - 7, 0);
-
-      for (let i = 8; i < size - 8; i++) {
-        const bit = i % 2 === 0;
-        if (!isFunction[6][i]) { modules[6][i] = bit; isFunction[6][i] = true; }
-        if (!isFunction[i][6]) { modules[i][6] = bit; isFunction[i][6] = true; }
-      }
-
-      if (version >= 2) {
-        const center = size - 9;
-        for (let r = -2; r <= 2; r++) {
-          for (let c = -2; c <= 2; c++) {
-            const rr = center + r, cc = center + c;
-            if (!isFunction[rr][cc]) {
-              modules[rr][cc] = Math.abs(r) === 2 || Math.abs(c) === 2 || (r === 0 && c === 0);
-              isFunction[rr][cc] = true;
-            }
-          }
-        }
-      }
-
-      for (let i = 0; i < 9; i++) {
-        if (i < size) { isFunction[8][i] = true; isFunction[i][8] = true; }
-      }
-      for (let i = 0; i < 8; i++) {
-        isFunction[8][size - 1 - i] = true;
-        isFunction[size - 1 - i][8] = true;
-      }
-      modules[size - 8][8] = true;
-      isFunction[size - 8][8] = true;
-
-      let bitIndex = 0, goingUp = true;
-      for (let col = size - 1; col > 0; col -= 2) {
-        if (col === 6) col = 5;
-        for (let count = 0; count < size; count++) {
-          const row = goingUp ? (size - 1 - count) : count;
-          for (let dx = 0; dx < 2; dx++) {
-            const c = col - dx;
-            if (!isFunction[row][c]) {
-              const b = bitIndex < fullStream.length * 8
-                ? ((fullStream[bitIndex >>> 3] >>> (7 - (bitIndex & 7))) & 1) === 1
-                : false;
-              modules[row][c] = ((row + c) % 2 === 0) ? !b : b;
-              bitIndex++;
-            }
-          }
-        }
-        goingUp = !goingUp;
-      }
-
-      const fmtBits = [1,1,1,0,1,1,1,1,1,0,0,0,1,0,0];
-      const topLeftCoords = [
-        [0,8],[1,8],[2,8],[3,8],[4,8],[5,8],[7,8],[8,8],
-        [8,7],[8,5],[8,4],[8,3],[8,2],[8,1],[8,0]
-      ];
-      for (let i = 0; i < 15; i++) {
-        const [r, c] = topLeftCoords[i];
-        modules[r][c] = fmtBits[i] === 1;
-      }
-      for (let i = 0; i < 7; i++) modules[size - 1 - i][8] = fmtBits[i] === 1;
-      for (let i = 7; i < 15; i++) modules[8][size - 15 + i] = fmtBits[i] === 1;
-
-      return { size, modules };
-    }
-
-    function reedSolomonEncode(data, ecLen) {
-      const exp = new Array(256).fill(0);
-      const log = new Array(256).fill(0);
-      let x = 1;
-      for (let i = 0; i < 255; i++) {
-        exp[i] = x; log[x] = i; x <<= 1;
-        if (x & 0x100) x ^= 0x11d;
-      }
-      function gfMul(a, b) {
-        if (a === 0 || b === 0) return 0;
-        return exp[(log[a] + log[b]) % 255];
-      }
-      let gen = [1];
-      for (let i = 0; i < ecLen; i++) {
-        const next = new Array(gen.length + 1).fill(0);
-        for (let j = 0; j < gen.length; j++) {
-          next[j] ^= gen[j];
-          next[j + 1] ^= gfMul(gen[j], exp[i]);
-        }
-        gen = next;
-      }
-      const res = new Array(ecLen).fill(0);
-      for (const d of data) {
-        const factor = d ^ res[0];
-        res.shift();
-        res.push(0);
-        for (let i = 0; i < ecLen; i++) res[i] ^= gfMul(gen[i + 1], factor);
-      }
-      return res;
+      const qr = qrcode(0, "M");
+      qr.addData(text);
+      qr.make();
+      return qr.createSvgTag({ cellSize: 5, margin: 4 });
     }
 
     function togglePollPanel(caseId) {
